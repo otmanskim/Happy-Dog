@@ -22,6 +22,9 @@
 		1FB050DE1ADD91340057CA58 /* HDSoundsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050DD1ADD91340057CA58 /* HDSoundsListTableViewController.m */; };
 		1FB050E11ADD91760057CA58 /* HDSoundsCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050E01ADD91760057CA58 /* HDSoundsCollector.m */; };
 		1FB050E41ADD92B60057CA58 /* HDSoundRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050E31ADD92B60057CA58 /* HDSoundRecording.m */; };
+		1FB050F11ADDA9330057CA58 /* HDCreateSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050F01ADDA9330057CA58 /* HDCreateSoundViewController.m */; };
+		1FB050F31ADDAA950057CA58 /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050F21ADDAA950057CA58 /* microphone.png */; };
+		1FB050F91ADDADB80057CA58 /* microphone-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050F81ADDADB80057CA58 /* microphone-red.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,10 @@
 		1FB050E01ADD91760057CA58 /* HDSoundsCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSoundsCollector.m; sourceTree = "<group>"; };
 		1FB050E21ADD92B60057CA58 /* HDSoundRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDSoundRecording.h; sourceTree = "<group>"; };
 		1FB050E31ADD92B60057CA58 /* HDSoundRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSoundRecording.m; sourceTree = "<group>"; };
+		1FB050EF1ADDA9330057CA58 /* HDCreateSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDCreateSoundViewController.h; sourceTree = "<group>"; };
+		1FB050F01ADDA9330057CA58 /* HDCreateSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDCreateSoundViewController.m; sourceTree = "<group>"; };
+		1FB050F21ADDAA950057CA58 /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone.png; sourceTree = "<group>"; };
+		1FB050F81ADDADB80057CA58 /* microphone-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-red.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +125,8 @@
 		1FB050A81ADD7AAC0057CA58 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1FB050F21ADDAA950057CA58 /* microphone.png */,
+				1FB050F81ADDADB80057CA58 /* microphone-red.png */,
 				1FB050D61ADD81280057CA58 /* raygun.wav */,
 				1FB050D81ADD83B20057CA58 /* pencil.mp3 */,
 				1FB050D91ADD83B20057CA58 /* page-turn.mp3 */,
@@ -164,6 +173,8 @@
 				1FB050CF1ADD7ACF0057CA58 /* HDViewController.m */,
 				1FB050DC1ADD91340057CA58 /* HDSoundsListTableViewController.h */,
 				1FB050DD1ADD91340057CA58 /* HDSoundsListTableViewController.m */,
+				1FB050EF1ADDA9330057CA58 /* HDCreateSoundViewController.h */,
+				1FB050F01ADDA9330057CA58 /* HDCreateSoundViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -249,7 +260,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FB050B41ADD7AAC0057CA58 /* Main.storyboard in Resources */,
+				1FB050F91ADDADB80057CA58 /* microphone-red.png in Resources */,
 				1FB050D71ADD81280057CA58 /* raygun.wav in Resources */,
+				1FB050F31ADDAA950057CA58 /* microphone.png in Resources */,
 				1FB050DB1ADD83B20057CA58 /* page-turn.mp3 in Resources */,
 				1FB050DA1ADD83B20057CA58 /* pencil.mp3 in Resources */,
 				1FB050B91ADD7AAC0057CA58 /* LaunchScreen.xib in Resources */,
@@ -271,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FB050F11ADDA9330057CA58 /* HDCreateSoundViewController.m in Sources */,
 				1FB050D01ADD7ACF0057CA58 /* HDViewController.m in Sources */,
 				1FB050E11ADD91760057CA58 /* HDSoundsCollector.m in Sources */,
 				1FB050D31ADD7B440057CA58 /* HDListener.m in Sources */,
@@ -474,6 +488,7 @@
 				1FB050CA1ADD7AAC0057CA58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1FB050CB1ADD7AAC0057CA58 /* Build configuration list for PBXNativeTarget "HappyDogObjCTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +497,7 @@
 				1FB050CD1ADD7AAC0057CA58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

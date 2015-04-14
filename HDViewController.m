@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *toggleListeningButton;
 @property (weak, nonatomic) IBOutlet UISlider *micSensitivitySlider;
 @property (weak, nonatomic) IBOutlet UIButton *saveSensitivityButton;
+@property (weak, nonatomic) IBOutlet UIButton *myRecordingsButton;
 
 @end
 
@@ -44,9 +45,11 @@
     if(![self.listener isRecording]) {
         [self.listener beginRecordingAudio];
         [self.toggleListeningButton setTitle:@"Stop Listening" forState:UIControlStateNormal];
+        [self.myRecordingsButton setEnabled:NO];
     } else {
         [self.listener stopRecordingAudio];
         [self.toggleListeningButton setTitle:@"Start Listening" forState:UIControlStateNormal];
+        [self.myRecordingsButton setEnabled:YES];
     }
 }
 - (IBAction)saveSensitivityButtonPressed:(id)sender {
@@ -93,5 +96,6 @@
     [self.saveSensitivityButton setEnabled:YES];
     self.saveSensitivityButton.titleLabel.textColor = self.view.tintColor;
 }
+
 
 @end

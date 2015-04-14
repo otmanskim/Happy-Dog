@@ -17,4 +17,7 @@
 - (void)removeSound:(HDSoundRecording *)sound;
 - (NSArray *)allSounds;
 
+- (BOOL)soundWithNameExists:(NSString *)name;
+
+
 @end
