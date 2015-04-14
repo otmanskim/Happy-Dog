@@ -7,6 +7,7 @@
 //
 
 #import "HDListener.h"
+#import "HDSoundsCollector.h"
 
 @interface HDListener() <AVAudioPlayerDelegate>
 
@@ -25,11 +26,7 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        NSURL *audioFile1LocationURL = [[NSBundle mainBundle] URLForResource:@"raygun-01" withExtension:@"wav"];
-        NSURL *audioFile2LocationURL = [[NSBundle mainBundle] URLForResource:@"pencil_scribble_out_on_paper" withExtension:@"mp3"];
-        NSURL *audioFile3LocationURL = [[NSBundle mainBundle] URLForResource:@"small_address_book_page_turn_twice" withExtension:@"mp3"];
-
-        self.soundEffects = [NSArray arrayWithObjects:audioFile1LocationURL, audioFile2LocationURL, audioFile3LocationURL, nil];
+        self.soundEffects = [[HDSoundsCollector sharedInstance] allSounds];
     }
     
     return self;

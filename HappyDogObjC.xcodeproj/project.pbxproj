@@ -16,9 +16,12 @@
 		1FB050D01ADD7ACF0057CA58 /* HDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050CF1ADD7ACF0057CA58 /* HDViewController.m */; };
 		1FB050D31ADD7B440057CA58 /* HDListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050D21ADD7B440057CA58 /* HDListener.m */; };
 		1FB050D51ADD7B5D0057CA58 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB050D41ADD7B5D0057CA58 /* AVFoundation.framework */; };
-		1FB050D71ADD81280057CA58 /* raygun-01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050D61ADD81280057CA58 /* raygun-01.wav */; };
-		1FB050DA1ADD83B20057CA58 /* pencil_scribble_out_on_paper.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050D81ADD83B20057CA58 /* pencil_scribble_out_on_paper.mp3 */; };
-		1FB050DB1ADD83B20057CA58 /* small_address_book_page_turn_twice.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050D91ADD83B20057CA58 /* small_address_book_page_turn_twice.mp3 */; };
+		1FB050D71ADD81280057CA58 /* raygun.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050D61ADD81280057CA58 /* raygun.wav */; };
+		1FB050DA1ADD83B20057CA58 /* pencil.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050D81ADD83B20057CA58 /* pencil.mp3 */; };
+		1FB050DB1ADD83B20057CA58 /* page-turn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050D91ADD83B20057CA58 /* page-turn.mp3 */; };
+		1FB050DE1ADD91340057CA58 /* HDSoundsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050DD1ADD91340057CA58 /* HDSoundsListTableViewController.m */; };
+		1FB050E11ADD91760057CA58 /* HDSoundsCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050E01ADD91760057CA58 /* HDSoundsCollector.m */; };
+		1FB050E41ADD92B60057CA58 /* HDSoundRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050E31ADD92B60057CA58 /* HDSoundRecording.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,9 +51,15 @@
 		1FB050D11ADD7B440057CA58 /* HDListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDListener.h; sourceTree = "<group>"; };
 		1FB050D21ADD7B440057CA58 /* HDListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDListener.m; sourceTree = "<group>"; };
 		1FB050D41ADD7B5D0057CA58 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		1FB050D61ADD81280057CA58 /* raygun-01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "raygun-01.wav"; sourceTree = "<group>"; };
-		1FB050D81ADD83B20057CA58 /* pencil_scribble_out_on_paper.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pencil_scribble_out_on_paper.mp3; sourceTree = "<group>"; };
-		1FB050D91ADD83B20057CA58 /* small_address_book_page_turn_twice.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = small_address_book_page_turn_twice.mp3; sourceTree = "<group>"; };
+		1FB050D61ADD81280057CA58 /* raygun.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = raygun.wav; sourceTree = "<group>"; };
+		1FB050D81ADD83B20057CA58 /* pencil.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pencil.mp3; sourceTree = "<group>"; };
+		1FB050D91ADD83B20057CA58 /* page-turn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "page-turn.mp3"; sourceTree = "<group>"; };
+		1FB050DC1ADD91340057CA58 /* HDSoundsListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDSoundsListTableViewController.h; sourceTree = "<group>"; };
+		1FB050DD1ADD91340057CA58 /* HDSoundsListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSoundsListTableViewController.m; sourceTree = "<group>"; };
+		1FB050DF1ADD91760057CA58 /* HDSoundsCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDSoundsCollector.h; sourceTree = "<group>"; };
+		1FB050E01ADD91760057CA58 /* HDSoundsCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSoundsCollector.m; sourceTree = "<group>"; };
+		1FB050E21ADD92B60057CA58 /* HDSoundRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDSoundRecording.h; sourceTree = "<group>"; };
+		1FB050E31ADD92B60057CA58 /* HDSoundRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSoundRecording.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,10 +84,10 @@
 		1FB0509C1ADD7AAC0057CA58 = {
 			isa = PBXGroup;
 			children = (
-				1FB050D41ADD7B5D0057CA58 /* AVFoundation.framework */,
 				1FB050A71ADD7AAC0057CA58 /* HappyDogObjC */,
 				1FB050C11ADD7AAC0057CA58 /* HappyDogObjCTests */,
 				1FB050A61ADD7AAC0057CA58 /* Products */,
+				1FB050D41ADD7B5D0057CA58 /* AVFoundation.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,13 +103,11 @@
 		1FB050A71ADD7AAC0057CA58 /* HappyDogObjC */ = {
 			isa = PBXGroup;
 			children = (
-				1FB050CE1ADD7ACF0057CA58 /* HDViewController.h */,
-				1FB050CF1ADD7ACF0057CA58 /* HDViewController.m */,
-				1FB050D11ADD7B440057CA58 /* HDListener.h */,
-				1FB050D21ADD7B440057CA58 /* HDListener.m */,
 				1FB050AC1ADD7AAC0057CA58 /* AppDelegate.h */,
 				1FB050AD1ADD7AAC0057CA58 /* AppDelegate.m */,
 				1FB050B21ADD7AAC0057CA58 /* Main.storyboard */,
+				1FB050E61ADD93170057CA58 /* View Controllers */,
+				1FB050E51ADD92F10057CA58 /* Models */,
 				1FB050B51ADD7AAC0057CA58 /* Images.xcassets */,
 				1FB050B71ADD7AAC0057CA58 /* LaunchScreen.xib */,
 				1FB050A81ADD7AAC0057CA58 /* Supporting Files */,
@@ -111,9 +118,9 @@
 		1FB050A81ADD7AAC0057CA58 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1FB050D61ADD81280057CA58 /* raygun-01.wav */,
-				1FB050D81ADD83B20057CA58 /* pencil_scribble_out_on_paper.mp3 */,
-				1FB050D91ADD83B20057CA58 /* small_address_book_page_turn_twice.mp3 */,
+				1FB050D61ADD81280057CA58 /* raygun.wav */,
+				1FB050D81ADD83B20057CA58 /* pencil.mp3 */,
+				1FB050D91ADD83B20057CA58 /* page-turn.mp3 */,
 				1FB050A91ADD7AAC0057CA58 /* Info.plist */,
 				1FB050AA1ADD7AAC0057CA58 /* main.m */,
 			);
@@ -135,6 +142,30 @@
 				1FB050C31ADD7AAC0057CA58 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1FB050E51ADD92F10057CA58 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1FB050D11ADD7B440057CA58 /* HDListener.h */,
+				1FB050D21ADD7B440057CA58 /* HDListener.m */,
+				1FB050E31ADD92B60057CA58 /* HDSoundRecording.m */,
+				1FB050E21ADD92B60057CA58 /* HDSoundRecording.h */,
+				1FB050DF1ADD91760057CA58 /* HDSoundsCollector.h */,
+				1FB050E01ADD91760057CA58 /* HDSoundsCollector.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1FB050E61ADD93170057CA58 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1FB050CE1ADD7ACF0057CA58 /* HDViewController.h */,
+				1FB050CF1ADD7ACF0057CA58 /* HDViewController.m */,
+				1FB050DC1ADD91340057CA58 /* HDSoundsListTableViewController.h */,
+				1FB050DD1ADD91340057CA58 /* HDSoundsListTableViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,9 +249,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FB050B41ADD7AAC0057CA58 /* Main.storyboard in Resources */,
-				1FB050D71ADD81280057CA58 /* raygun-01.wav in Resources */,
-				1FB050DB1ADD83B20057CA58 /* small_address_book_page_turn_twice.mp3 in Resources */,
-				1FB050DA1ADD83B20057CA58 /* pencil_scribble_out_on_paper.mp3 in Resources */,
+				1FB050D71ADD81280057CA58 /* raygun.wav in Resources */,
+				1FB050DB1ADD83B20057CA58 /* page-turn.mp3 in Resources */,
+				1FB050DA1ADD83B20057CA58 /* pencil.mp3 in Resources */,
 				1FB050B91ADD7AAC0057CA58 /* LaunchScreen.xib in Resources */,
 				1FB050B61ADD7AAC0057CA58 /* Images.xcassets in Resources */,
 			);
@@ -241,7 +272,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FB050D01ADD7ACF0057CA58 /* HDViewController.m in Sources */,
+				1FB050E11ADD91760057CA58 /* HDSoundsCollector.m in Sources */,
 				1FB050D31ADD7B440057CA58 /* HDListener.m in Sources */,
+				1FB050E41ADD92B60057CA58 /* HDSoundRecording.m in Sources */,
+				1FB050DE1ADD91340057CA58 /* HDSoundsListTableViewController.m in Sources */,
 				1FB050AE1ADD7AAC0057CA58 /* AppDelegate.m in Sources */,
 				1FB050AB1ADD7AAC0057CA58 /* main.m in Sources */,
 			);
