@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "HDSoundsCollector.h"
+#import "HDSoundRecording.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +19,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self populateSoundsArray];
+    
     return YES;
+}
+
+- (void)populateSoundsArray {
+    HDSoundsCollector *collector = [HDSoundsCollector sharedInstance];
+    
+    HDSoundRecording *recording1 = [[HDSoundRecording alloc] initWithName:@"raygun" andFileType:@"wav"];
+    HDSoundRecording *recording2 = [[HDSoundRecording alloc] initWithName:@"pencil" andFileType:@"mp3"];
+    HDSoundRecording *recording3 = [[HDSoundRecording alloc] initWithName:@"page-turn" andFileType:@"mp3"];
+    
+    [collector addSound:recording1];
+    [collector addSound:recording2];
+    [collector addSound:recording3];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
