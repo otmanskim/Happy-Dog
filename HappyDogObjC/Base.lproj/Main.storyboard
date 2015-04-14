@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qCf-j9-rZI">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Happy Dog Listener-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HDViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVp-XK-nlQ">
+                                <rect key="frame" x="168" y="236" width="264" height="127"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="127" id="22h-ps-epe"/>
+                                    <constraint firstAttribute="width" constant="264" id="jQo-pA-O0b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Start Listening">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleListeningButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8jS-mB-dCV"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5Ur-FF-kC4">
+                                <rect key="frame" x="166" y="410" width="268" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QRw-z7-waD"/>
+                                    <constraint firstAttribute="width" constant="264" id="yqe-fM-gsR"/>
+                                </constraints>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sensitivity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94l-eq-pcB">
+                                <rect key="frame" x="261" y="448" width="78" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HW-Jl-Wt6">
+                                <rect key="frame" x="380" y="444" width="52" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="KIL-Ta-ehI"/>
+                                    <constraint firstAttribute="width" constant="52" id="lWh-Yv-M3q"/>
+                                </constraints>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveSensitivityButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TVX-zS-X2u"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rz-uJ-xI1">
+                                <rect key="frame" x="461" y="562" width="123" height="30"/>
+                                <state key="normal" title="My Recordings -&gt;">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1HW-Jl-Wt6" firstAttribute="leading" secondItem="94l-eq-pcB" secondAttribute="trailing" constant="41" id="79y-Kd-4sg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4rz-uJ-xI1" secondAttribute="bottom" constant="8" id="K0Y-Am-WZb"/>
+                            <constraint firstAttribute="centerY" secondItem="LVp-XK-nlQ" secondAttribute="centerY" constant="0.5" id="Kvw-m4-JAg"/>
+                            <constraint firstAttribute="centerX" secondItem="LVp-XK-nlQ" secondAttribute="centerX" id="SJB-wI-Dt4"/>
+                            <constraint firstItem="94l-eq-pcB" firstAttribute="top" secondItem="5Ur-FF-kC4" secondAttribute="bottom" constant="8" id="UOP-5g-His"/>
+                            <constraint firstItem="5Ur-FF-kC4" firstAttribute="top" secondItem="LVp-XK-nlQ" secondAttribute="bottom" constant="47" id="lEd-5I-0Jb"/>
+                            <constraint firstItem="1HW-Jl-Wt6" firstAttribute="baseline" secondItem="94l-eq-pcB" secondAttribute="baseline" id="mkm-xf-wTX"/>
+                            <constraint firstAttribute="centerX" secondItem="94l-eq-pcB" secondAttribute="centerX" id="mzf-AC-3Xq"/>
+                            <constraint firstAttribute="centerY" secondItem="5Ur-FF-kC4" secondAttribute="centerY" constant="-125" id="p64-0b-pVY"/>
+                            <constraint firstItem="4rz-uJ-xI1" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="xgV-zh-L4u"/>
+                            <constraint firstAttribute="centerX" secondItem="5Ur-FF-kC4" secondAttribute="centerX" id="yfr-Lw-4Hl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Happy Dog Listener" id="8G0-x5-K4t"/>
+                    <connections>
+                        <outlet property="micSensitivitySlider" destination="5Ur-FF-kC4" id="qdG-5e-SLo"/>
+                        <outlet property="saveSensitivityButton" destination="1HW-Jl-Wt6" id="BEj-f4-w2k"/>
+                        <outlet property="toggleListeningButton" destination="LVp-XK-nlQ" id="d3o-mD-78y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1197" y="352"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Nal-jQ-ROc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qCf-j9-rZI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7vf-Cy-m5V">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4mp-eI-e7p"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="faR-IR-rDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="424" y="362"/>
+        </scene>
+    </scenes>
+</document>
