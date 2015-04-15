@@ -13,11 +13,14 @@
 @interface HDCreateSoundViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UITextField *recordingNameTextField;
+@property (weak, nonatomic) IBOutlet UIButton *playRecordingButton;
+
 @property (nonatomic, strong) AVAudioRecorder *audioRecorder;
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @property (nonatomic, strong) AVAudioSession *audioSession;
 @property (nonatomic, strong) NSString *fileDestinationString;
-@property (weak, nonatomic) IBOutlet UIButton *playRecordingButton;
+@property (nonatomic, strong) NSString *createdSoundFilename;
+
 
 @end
 
@@ -26,6 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNavigationItems];
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped)];
+    [self.view addGestureRecognizer:tapRecognizer];
     // Do any additional setup after loading the view.
 }
 
@@ -37,60 +43,93 @@
 }
 
 - (IBAction)recordButtonTapped:(id)sender {
-    if(self.audioRecorder.isRecording) {
-        [self stopRecording];
-        [self.recordButton setBackgroundImage:[UIImage imageNamed:@"microphone"] forState:UIControlStateNormal];
+    
+    NSLog(@"AudioRecorder.isRecording  = %d", [self.audioRecorder isRecording]);
+    
+    if(![self newSoundNamePassesCriteria]) {
+        //only allow recording if we already have a valid name
+        [self showNeedsNameAlert];
     } else {
-        [self startRecording];
-        [self.recordButton setBackgroundImage:[UIImage imageNamed:@"microphone-red"] forState:UIControlStateNormal];
+        if([self.audioRecorder isRecording]) {
+            [self stopRecording];
+            [self.recordingNameTextField setUserInteractionEnabled:YES];
+            [self.recordButton setBackgroundImage:[UIImage imageNamed:@"microphone"] forState:UIControlStateNormal];
+        } else {
+            [self startRecording];
+            [self.recordingNameTextField setUserInteractionEnabled:NO];
+            [self.recordButton setBackgroundImage:[UIImage imageNamed:@"microphone-red"] forState:UIControlStateNormal];
+        }
     }
 }
 
 - (void)startRecording {
-    NSDictionary *settings = [NSDictionary dictionaryWithObjectsAndKeys:
-                              [NSNumber numberWithFloat: 44100.0],                 AVSampleRateKey,
-                              [NSNumber numberWithInt: kAudioFormatAppleLossless], AVFormatIDKey,
-                              [NSNumber numberWithInt: 1],                         AVNumberOfChannelsKey,
-                              [NSNumber numberWithInt: AVAudioQualityMax],         AVEncoderAudioQualityKey,
-                              nil];
+    self.audioSession = [AVAudioSession sharedInstance];
+    [self.audioSession setCategory:AVAudioSessionCategoryRecord error:nil];
+    [self.audioSession setActive:YES error:nil];
+
     
     NSError *error;
     
-    self.fileDestinationString = [[self documentsPath] stringByAppendingString:@"test.caf"];
-    NSLog(@"New sound file destination string: %@", self.fileDestinationString);
+    self.createdSoundFilename = [self newRecordingNameFromTextInput];
     
-    NSURL *destinationURL = [NSURL fileURLWithPath: self.fileDestinationString];
+    // sets the path for audio file
+    NSArray *pathComponents = [NSArray arrayWithObjects:
+                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+                               [NSString stringWithFormat:@"%@.m4a", self.createdSoundFilename],
+                               nil];
     
-    self.audioRecorder = [[AVAudioRecorder alloc] initWithURL:destinationURL settings:settings error:&error];
-    self.audioSession = [AVAudioSession sharedInstance];
-    [self.audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
+    NSURL *recordedAudioURL = [NSURL fileURLWithPathComponents:pathComponents];
     
-    if (self.audioRecorder) {
-        [self.audioRecorder prepareToRecord];
-    } else {
-        NSLog(@"%@", [error description]);
-    }
+    // settings for the recorder
+    NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc] init];
+    [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
+    [recordSetting setValue:[NSNumber numberWithFloat:44100.0] forKey:AVSampleRateKey];
+    [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
+    
+    self.audioRecorder = [[AVAudioRecorder alloc] initWithURL:recordedAudioURL settings:recordSetting error:&error];
+    [self.audioRecorder prepareToRecord];
+
     
     [self.audioRecorder record];
 }
 
+//replaces any spaces with underscores
+- (NSString *)newRecordingNameFromTextInput {
+    return [self.recordingNameTextField.text stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+}
+
 -(void) playRecord
 {
-    self.audioPlayer =[[AVAudioPlayer alloc] initWithContentsOfURL:
-             [NSURL fileURLWithPath:self.fileDestinationString]
-                                                   error:NULL];
-    
-    [self.audioPlayer play];
+    if(self.createdSoundFilename) {
+        self.audioSession = [AVAudioSession sharedInstance];
+        [self.audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+        [self.audioSession setActive:YES error:nil];
+        
+        // sets the path for audio file
+        NSArray *pathComponents = [NSArray arrayWithObjects:
+                                   [self documentsPath],
+                                   [NSString stringWithFormat:@"%@.m4a", self.createdSoundFilename],
+                                   nil];
+        
+        NSURL *recordedAudioURL = [NSURL fileURLWithPathComponents:pathComponents];
+        
+        NSError *error;
+
+        self.audioPlayer =[[AVAudioPlayer alloc] initWithContentsOfURL:recordedAudioURL error:&error];
+        
+        if(error) {
+            [self showNoRecordingAlert];
+        } else {
+            [self.audioPlayer play];
+        }
+    } else {
+        [self showNoRecordingAlert];
+    }
 }
 
 - (NSString*) documentsPath
 {
-    NSArray *searchPaths =
-    NSSearchPathForDirectoriesInDomains
-    (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* _documentsPath = [searchPaths objectAtIndex: 0];
-    
-    return _documentsPath;
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
 - (void)stopRecording {
@@ -98,14 +137,34 @@
 }
 
 - (void)doneButtonPressed {
-    if([self newSoundNamePassesCriteria]) {
-        //replace any spaces in name with "-"
-        //create new HDSoundRecording with new name and whatever the default file type for these saved files is
-        //add this sound recording to the list in HDSoundsCollector
+    if([self newSoundNamePassesCriteria] && [self newRecordingExists]) {
+        [self createNewSoundRecordingObject];
         [self.navigationController popViewControllerAnimated:YES];
     } else {
         [self showInvalidAlert];
     }
+}
+
+- (void)createNewSoundRecordingObject {
+    HDSoundRecording *newRecording = [[HDSoundRecording alloc] initWithName:self.createdSoundFilename andFileType:@"m4a"];
+    [[HDSoundsCollector sharedInstance] addSound:newRecording];
+}
+
+- (BOOL)newRecordingExists {
+    BOOL exists = NO;
+    
+    NSArray *pathComponents = [NSArray arrayWithObjects:
+                               [self documentsPath],
+                               [NSString stringWithFormat:@"%@.m4a", self.createdSoundFilename],
+                               nil];
+    
+    NSURL *recordedAudioURL = [NSURL fileURLWithPathComponents:pathComponents];
+    NSError *error;
+    AVAudioPlayer *tempPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:recordedAudioURL error:&error];
+    
+    exists = tempPlayer != nil;
+    
+    return exists;
 }
 
 - (BOOL)newSoundNamePassesCriteria {
@@ -132,6 +191,11 @@
     [self playRecord];
 }
 
+- (void)viewTapped {
+    [self.recordingNameTextField resignFirstResponder];
+}
+
+#pragma mark - Alert View Methods
 - (void)showInvalidAlert {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Invalid Sound" message:@"New sounds must have a recording, and a title with: at least 4 characters, no numbers or special characters, and must not already exist in the app." preferredStyle:UIAlertControllerStyleAlert];
     
@@ -146,6 +210,23 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+- (void)showNeedsNameAlert {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Need Valid Title" message:@"You must enter a valid name for your new sound before recording." preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)showNoRecordingAlert {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"No Recording Yet" message:@"There is no recorded sound yet." preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 
 @end

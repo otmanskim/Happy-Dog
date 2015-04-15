@@ -99,7 +99,20 @@
     NSURL *audioFileLocationURL = [[NSBundle mainBundle] URLForResource:soundRecording.recordingName withExtension:soundRecording.fileType];
 
 
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFileLocationURL error:&error];
+    NSArray *pathComponents = [NSArray arrayWithObjects:
+                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+                               [NSString stringWithFormat:@"%@.%@", soundRecording.recordingName, soundRecording.fileType],
+                               nil];
+    
+    NSURL *recordedAudioURL = [NSURL fileURLWithPathComponents:pathComponents];
+    
+    
+    self.audioPlayer =[[AVAudioPlayer alloc] initWithContentsOfURL:recordedAudioURL error:&error];
+
+    if(!self.audioPlayer) {
+        self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFileLocationURL error:&error];
+    }
+    
     [self.audioPlayer setNumberOfLoops:0];
     self.audioPlayer.delegate = self;
     [self.audioPlayer prepareToPlay];
