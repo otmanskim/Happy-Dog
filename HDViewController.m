@@ -7,6 +7,7 @@
 //
 
 #import "HDViewController.h"
+#import "HDSoundsCollector.h"
 
 @interface HDViewController()
 
@@ -43,9 +44,13 @@
     self.listener.micSensitivity = [self convertSliderValueToSensitivity];
     
     if(![self.listener isRecording]) {
-        [self.listener beginRecordingAudio];
-        [self.toggleListeningButton setTitle:@"Stop Listening" forState:UIControlStateNormal];
-        [self.myRecordingsButton setEnabled:NO];
+        if([[HDSoundsCollector sharedInstance] allSounds].count) {
+            [self.listener beginRecordingAudio];
+            [self.toggleListeningButton setTitle:@"Stop Listening" forState:UIControlStateNormal];
+            [self.myRecordingsButton setEnabled:NO];
+        } else {
+            [self displayNoSoundsAlert];
+        }
     } else {
         [self.listener stopRecordingAudio];
         [self.toggleListeningButton setTitle:@"Start Listening" forState:UIControlStateNormal];
@@ -95,6 +100,21 @@
     [self.saveSensitivityButton setTitle:@"Save" forState:UIControlStateNormal];
     [self.saveSensitivityButton setEnabled:YES];
     self.saveSensitivityButton.titleLabel.textColor = self.view.tintColor;
+}
+
+- (void)displayNoSoundsAlert {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"No Sounds!" message:@"You do not have any sounds yet! Tap on 'My Sounds' to add some sounds." preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    UIAlertAction *goToMyRecordingsAction = [UIAlertAction actionWithTitle:@"Go to My Sounds" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        [self performSegueWithIdentifier:@"myRecordingsSegue" sender:self];
+    }];
+    
+    [alertController addAction:goToMyRecordingsAction];
+    [alertController addAction:cancelAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 

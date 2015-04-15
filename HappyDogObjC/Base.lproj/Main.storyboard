@@ -60,12 +60,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rz-uJ-xI1">
-                                <rect key="frame" x="461" y="562" width="123" height="30"/>
-                                <state key="normal" title="My Recordings -&gt;">
+                                <rect key="frame" x="487" y="562" width="97" height="30"/>
+                                <state key="normal" title="My Sounds -&gt;">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="acp-rZ-rLP" kind="show" id="gUa-Vy-rwg"/>
+                                    <segue destination="acp-rZ-rLP" kind="show" identifier="myRecordingsSegue" id="gUa-Vy-rwg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -199,6 +199,7 @@
                     <connections>
                         <outlet property="playRecordingButton" destination="PuL-MR-Ybo" id="W9U-SA-1qb"/>
                         <outlet property="recordButton" destination="AF8-fu-3bP" id="nbh-yW-01U"/>
+                        <outlet property="recordLabel" destination="yRx-DK-hxN" id="2rP-aQ-MU0"/>
                         <outlet property="recordingNameTextField" destination="NXZ-Qt-EPx" id="KEa-KF-JgL"/>
                     </connections>
                 </viewController>

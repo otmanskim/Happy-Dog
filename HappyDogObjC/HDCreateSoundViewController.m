@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UITextField *recordingNameTextField;
 @property (weak, nonatomic) IBOutlet UIButton *playRecordingButton;
+@property (weak, nonatomic) IBOutlet UILabel *recordLabel;
 
 @property (nonatomic, strong) AVAudioRecorder *audioRecorder;
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
@@ -54,10 +55,12 @@
             [self stopRecording];
             [self.recordingNameTextField setUserInteractionEnabled:YES];
             [self.recordButton setBackgroundImage:[UIImage imageNamed:@"microphone"] forState:UIControlStateNormal];
+            [self.recordLabel setText:@"Record"];
         } else {
             [self startRecording];
             [self.recordingNameTextField setUserInteractionEnabled:NO];
             [self.recordButton setBackgroundImage:[UIImage imageNamed:@"microphone-red"] forState:UIControlStateNormal];
+            [self.recordLabel setText:@"Stop Recording"];
         }
     }
 }
