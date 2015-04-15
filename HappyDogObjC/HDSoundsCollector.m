@@ -43,5 +43,19 @@
     return collector.sounds;
 }
 
+- (BOOL)soundWithNameExists:(NSString *)name {
+    HDSoundsCollector *collector = [HDSoundsCollector sharedInstance];
+    BOOL nameExists = NO;
+
+    for(HDSoundRecording *sound in collector.sounds) {
+        if([sound.recordingName isEqualToString:name]) {
+            nameExists = YES;
+            break;
+        }
+    }
+    
+    return nameExists;
+}
+
 
 @end

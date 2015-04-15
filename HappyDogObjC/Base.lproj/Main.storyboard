@@ -87,6 +87,7 @@
                     <navigationItem key="navigationItem" title="Happy Dog Listener" id="8G0-x5-K4t"/>
                     <connections>
                         <outlet property="micSensitivitySlider" destination="5Ur-FF-kC4" id="qdG-5e-SLo"/>
+                        <outlet property="myRecordingsButton" destination="4rz-uJ-xI1" id="cK8-yq-Xev"/>
                         <outlet property="saveSensitivityButton" destination="1HW-Jl-Wt6" id="BEj-f4-w2k"/>
                         <outlet property="toggleListeningButton" destination="LVp-XK-nlQ" id="d3o-mD-78y"/>
                     </connections>
@@ -116,13 +117,94 @@
                             <outlet property="delegate" destination="acp-rZ-rLP" id="W72-zo-ABq"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="view" destination="uSe-Vc-RSV" id="MDM-7d-RgU"/>
+                        <segue destination="2YS-37-5ui" kind="show" identifier="createSoundSegue" id="HDv-BO-AF9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="naO-Td-AyV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1951" y="352"/>
+        </scene>
+        <!--Create Sound View Controller-->
+        <scene sceneID="YGg-y8-Ifw">
+            <objects>
+                <viewController storyboardIdentifier="CreateNewSoundID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2YS-37-5ui" customClass="HDCreateSoundViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2EX-B4-kA7"/>
+                        <viewControllerLayoutGuide type="bottom" id="pPu-Fz-lEL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l3B-B4-aJV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRx-DK-hxN">
+                                <rect key="frame" x="272" y="372" width="56" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AF8-fu-3bP">
+                                <rect key="frame" x="254" y="258" width="92" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="92" id="UvZ-ho-DIv"/>
+                                    <constraint firstAttribute="height" constant="84" id="vUx-jL-LOy"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="microphone.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordButtonTapped:" destination="2YS-37-5ui" eventType="touchUpInside" id="BDt-O4-2K4"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Recording Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXZ-Qt-EPx">
+                                <rect key="frame" x="181" y="153" width="239" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8qV-om-GIb"/>
+                                    <constraint firstAttribute="width" constant="239" id="G0z-8Y-DJO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuL-MR-Ybo">
+                                <rect key="frame" x="206" y="401" width="189" height="30"/>
+                                <state key="normal" title="Play Back Recorded Sound">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playRecordingButtonTapped:" destination="2YS-37-5ui" eventType="touchUpInside" id="95Z-cr-SEH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PuL-MR-Ybo" firstAttribute="top" secondItem="yRx-DK-hxN" secondAttribute="bottom" constant="8" id="0F8-X0-LX7"/>
+                            <constraint firstAttribute="centerX" secondItem="AF8-fu-3bP" secondAttribute="centerX" id="Ci0-MY-tMf"/>
+                            <constraint firstAttribute="centerY" secondItem="AF8-fu-3bP" secondAttribute="centerY" id="JBB-2Q-vyB"/>
+                            <constraint firstAttribute="centerX" secondItem="yRx-DK-hxN" secondAttribute="centerX" id="LAL-T1-P65"/>
+                            <constraint firstItem="AF8-fu-3bP" firstAttribute="top" secondItem="NXZ-Qt-EPx" secondAttribute="bottom" constant="75" id="XdL-Qm-3m9"/>
+                            <constraint firstItem="yRx-DK-hxN" firstAttribute="top" secondItem="AF8-fu-3bP" secondAttribute="bottom" constant="30" id="etG-1e-dEK"/>
+                            <constraint firstAttribute="centerX" secondItem="NXZ-Qt-EPx" secondAttribute="centerX" constant="-0.5" id="pO3-SE-87D"/>
+                            <constraint firstAttribute="centerX" secondItem="PuL-MR-Ybo" secondAttribute="centerX" constant="-0.5" id="vj8-F2-mtu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NXZ-Qt-EPx" secondAttribute="trailing" constant="90" id="zTg-9x-oeh"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="zTg-9x-oeh"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="playRecordingButton" destination="PuL-MR-Ybo" id="W9U-SA-1qb"/>
+                        <outlet property="recordButton" destination="AF8-fu-3bP" id="nbh-yW-01U"/>
+                        <outlet property="recordingNameTextField" destination="NXZ-Qt-EPx" id="KEa-KF-JgL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6kG-Xr-t45" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1855" y="1297"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nal-jQ-ROc">
@@ -143,4 +225,7 @@
             <point key="canvasLocation" x="424" y="362"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="microphone.png" width="128" height="128"/>
+    </resources>
 </document>

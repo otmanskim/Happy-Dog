@@ -76,12 +76,15 @@
     double peakPowerForChannel = pow(10, (0.05 * [self.audioRecorder peakPowerForChannel:0]));
     self.lowPassResults = ALPHA * peakPowerForChannel + (1.0 - ALPHA) * self.lowPassResults;
     
-    NSLog(@"Average input: %f Peak input: %f", [self.audioRecorder averagePowerForChannel:0], [self.audioRecorder peakPowerForChannel:0]);
+//    NSLog(@"Average input: %f Peak input: %f", [self.audioRecorder averagePowerForChannel:0], [self.audioRecorder peakPowerForChannel:0]);
     
-    NSLog(@"Low Pass Results: %f", self.lowPassResults);
+//    NSLog(@"Low Pass Results: %f", self.lowPassResults);
     
     if(self.lowPassResults > self.micSensitivity) {
+        self.lowPassResults = 0;
+
         NSLog(@"Barking Detected");
+        [self stopRecordingAudio];
         [self playSound];
     }
 }
@@ -89,12 +92,27 @@
 - (void)playSound {
     NSError *error;
 
-    [self stopRecordingAudio];
     [self.audioSession setCategory:AVAudioSessionCategoryPlayback error:&error];
     [self.audioSession setActive:YES error:&error];
     
-    NSURL *audioFileLocationURL = self.soundEffects[[self randomIndexIntoSoundEffectsArray]];
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFileLocationURL error:&error];
+    HDSoundRecording *soundRecording = self.soundEffects[[self randomIndexIntoSoundEffectsArray]];
+    NSURL *audioFileLocationURL = [[NSBundle mainBundle] URLForResource:soundRecording.recordingName withExtension:soundRecording.fileType];
+
+
+    NSArray *pathComponents = [NSArray arrayWithObjects:
+                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+                               [NSString stringWithFormat:@"%@.%@", soundRecording.recordingName, soundRecording.fileType],
+                               nil];
+    
+    NSURL *recordedAudioURL = [NSURL fileURLWithPathComponents:pathComponents];
+    
+    
+    self.audioPlayer =[[AVAudioPlayer alloc] initWithContentsOfURL:recordedAudioURL error:&error];
+
+    if(!self.audioPlayer) {
+        self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFileLocationURL error:&error];
+    }
+    
     [self.audioPlayer setNumberOfLoops:0];
     self.audioPlayer.delegate = self;
     [self.audioPlayer prepareToPlay];
