@@ -182,8 +182,8 @@
 			children = (
 				1FB050D11ADD7B440057CA58 /* HDListener.h */,
 				1FB050D21ADD7B440057CA58 /* HDListener.m */,
-				1FB050E31ADD92B60057CA58 /* HDSoundRecording.m */,
 				1FB050E21ADD92B60057CA58 /* HDSoundRecording.h */,
+				1FB050E31ADD92B60057CA58 /* HDSoundRecording.m */,
 				1FB050DF1ADD91760057CA58 /* HDSoundsCollector.h */,
 				1FB050E01ADD91760057CA58 /* HDSoundsCollector.m */,
 			);

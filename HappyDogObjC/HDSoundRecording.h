@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HDSoundRecording : NSObject
+@interface HDSoundRecording : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *recordingName;
 @property (nonatomic, strong) NSString *fileType;
