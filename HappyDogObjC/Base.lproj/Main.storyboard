@@ -168,15 +168,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuL-MR-Ybo">
+                                <rect key="frame" x="206" y="401" width="189" height="30"/>
+                                <state key="normal" title="Play Back Recorded Sound">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playRecordingButtonTapped:" destination="2YS-37-5ui" eventType="touchUpInside" id="95Z-cr-SEH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="PuL-MR-Ybo" firstAttribute="top" secondItem="yRx-DK-hxN" secondAttribute="bottom" constant="8" id="0F8-X0-LX7"/>
                             <constraint firstAttribute="centerX" secondItem="AF8-fu-3bP" secondAttribute="centerX" id="Ci0-MY-tMf"/>
                             <constraint firstAttribute="centerY" secondItem="AF8-fu-3bP" secondAttribute="centerY" id="JBB-2Q-vyB"/>
                             <constraint firstAttribute="centerX" secondItem="yRx-DK-hxN" secondAttribute="centerX" id="LAL-T1-P65"/>
                             <constraint firstItem="AF8-fu-3bP" firstAttribute="top" secondItem="NXZ-Qt-EPx" secondAttribute="bottom" constant="75" id="XdL-Qm-3m9"/>
                             <constraint firstItem="yRx-DK-hxN" firstAttribute="top" secondItem="AF8-fu-3bP" secondAttribute="bottom" constant="30" id="etG-1e-dEK"/>
                             <constraint firstAttribute="centerX" secondItem="NXZ-Qt-EPx" secondAttribute="centerX" constant="-0.5" id="pO3-SE-87D"/>
+                            <constraint firstAttribute="centerX" secondItem="PuL-MR-Ybo" secondAttribute="centerX" constant="-0.5" id="vj8-F2-mtu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NXZ-Qt-EPx" secondAttribute="trailing" constant="90" id="zTg-9x-oeh"/>
                         </constraints>
                         <variation key="default">
@@ -186,6 +197,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="playRecordingButton" destination="PuL-MR-Ybo" id="W9U-SA-1qb"/>
                         <outlet property="recordButton" destination="AF8-fu-3bP" id="nbh-yW-01U"/>
                         <outlet property="recordingNameTextField" destination="NXZ-Qt-EPx" id="KEa-KF-JgL"/>
                     </connections>

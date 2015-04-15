@@ -14,7 +14,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UITextField *recordingNameTextField;
 @property (nonatomic, strong) AVAudioRecorder *audioRecorder;
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @property (nonatomic, strong) AVAudioSession *audioSession;
+@property (nonatomic, strong) NSString *fileDestinationString;
+@property (weak, nonatomic) IBOutlet UIButton *playRecordingButton;
 
 @end
 
@@ -44,8 +47,6 @@
 }
 
 - (void)startRecording {
-    NSURL *url = [NSURL fileURLWithPath:@"/dev/null"];
-    
     NSDictionary *settings = [NSDictionary dictionaryWithObjectsAndKeys:
                               [NSNumber numberWithFloat: 44100.0],                 AVSampleRateKey,
                               [NSNumber numberWithInt: kAudioFormatAppleLossless], AVFormatIDKey,
@@ -55,7 +56,12 @@
     
     NSError *error;
     
-    self.audioRecorder = [[AVAudioRecorder alloc] initWithURL:url settings:settings error:&error];
+    self.fileDestinationString = [[self documentsPath] stringByAppendingString:@"test.caf"];
+    NSLog(@"New sound file destination string: %@", self.fileDestinationString);
+    
+    NSURL *destinationURL = [NSURL fileURLWithPath: self.fileDestinationString];
+    
+    self.audioRecorder = [[AVAudioRecorder alloc] initWithURL:destinationURL settings:settings error:&error];
     self.audioSession = [AVAudioSession sharedInstance];
     [self.audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
     
@@ -68,9 +74,27 @@
     [self.audioRecorder record];
 }
 
+-(void) playRecord
+{
+    self.audioPlayer =[[AVAudioPlayer alloc] initWithContentsOfURL:
+             [NSURL fileURLWithPath:self.fileDestinationString]
+                                                   error:NULL];
+    
+    [self.audioPlayer play];
+}
+
+- (NSString*) documentsPath
+{
+    NSArray *searchPaths =
+    NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* _documentsPath = [searchPaths objectAtIndex: 0];
+    
+    return _documentsPath;
+}
+
 - (void)stopRecording {
     [self.audioRecorder stop];
-    self.audioRecorder = nil;
 }
 
 - (void)doneButtonPressed {
@@ -103,6 +127,9 @@
     
     BOOL valid = [[string stringByTrimmingCharactersInSet:allowedCharacters] isEqualToString:@""];
     return valid;
+}
+- (IBAction)playRecordingButtonTapped:(id)sender {
+    [self playRecord];
 }
 
 - (void)showInvalidAlert {
