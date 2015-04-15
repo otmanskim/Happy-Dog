@@ -18,6 +18,6 @@
 - (NSArray *)allSounds;
 
 - (BOOL)soundWithNameExists:(NSString *)name;
-
+- (void)performInitialSoundFetchFromUserDefaults;
 
 @end

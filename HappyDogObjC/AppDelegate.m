@@ -26,24 +26,7 @@
 
 - (void)populateSoundsArray {
     HDSoundsCollector *collector = [HDSoundsCollector sharedInstance];
-    
-//    HDSoundRecording *recording1 = [[HDSoundRecording alloc] initWithName:@"raygun" andFileType:@"wav"];
-//    HDSoundRecording *recording2 = [[HDSoundRecording alloc] initWithName:@"pencil" andFileType:@"mp3"];
-//    HDSoundRecording *recording3 = [[HDSoundRecording alloc] initWithName:@"page-turn" andFileType:@"mp3"];
-    
-    HDSoundRecording *recording1 = [[HDSoundRecording alloc] initWithName:@"hey-eros-1" andFileType:@"m4a"];
-    HDSoundRecording *recording2 = [[HDSoundRecording alloc] initWithName:@"hey-eros-2" andFileType:@"m4a"];
-    HDSoundRecording *recording3 = [[HDSoundRecording alloc] initWithName:@"hey-eros-3" andFileType:@"m4a"];
-    HDSoundRecording *recording4 = [[HDSoundRecording alloc] initWithName:@"angry-hey-1" andFileType:@"m4a"];
-    HDSoundRecording *recording5 = [[HDSoundRecording alloc] initWithName:@"angry-hey-2" andFileType:@"m4a"];
-    HDSoundRecording *recording6 = [[HDSoundRecording alloc] initWithName:@"shhhhh" andFileType:@"m4a"];
-    
-    [collector addSound:recording1];
-    [collector addSound:recording2];
-    [collector addSound:recording3];
-    [collector addSound:recording4];
-    [collector addSound:recording5];
-    [collector addSound:recording6];
+    [collector performInitialSoundFetchFromUserDefaults];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -21,4 +21,21 @@
     return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if(self) {
+        self.recordingName = [aDecoder decodeObjectForKey:@"recordingName"];
+        self.fileType = [aDecoder decodeObjectForKey:@"fileType"];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.recordingName forKey:@"recordingName"];
+    [aCoder encodeObject:self.fileType forKey:@"fileType"];
+}
+
+
+
 @end

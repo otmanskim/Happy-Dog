@@ -14,6 +14,9 @@
 
 @end
 
+#define kUserDefaultsSavedSoundsKey @"savedSounds"
+
+
 @implementation HDSoundsCollector
 
 + (HDSoundsCollector *)sharedInstance {
@@ -31,16 +34,36 @@
 - (void)addSound:(HDSoundRecording *)sound {
     HDSoundsCollector *collector = [HDSoundsCollector sharedInstance];
     [collector.sounds addObject:sound];
+    [self updateUserDefaults];
 }
 
 - (void)removeSound:(HDSoundRecording *)sound {
     HDSoundsCollector *collector = [HDSoundsCollector sharedInstance];
     [collector.sounds removeObject:sound];
+    [self updateUserDefaults];
 }
 
 - (NSArray *)allSounds {
     HDSoundsCollector *collector = [HDSoundsCollector sharedInstance];
     return collector.sounds;
+}
+
+- (void)updateUserDefaults {
+    HDSoundsCollector *collector = [HDSoundsCollector sharedInstance];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:collector.sounds];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:data forKey:kUserDefaultsSavedSoundsKey];
+    [defaults synchronize];
+}
+
+- (void)performInitialSoundFetchFromUserDefaults {
+    HDSoundsCollector *collector = [HDSoundsCollector sharedInstance];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    NSData *data = [defaults objectForKey:kUserDefaultsSavedSoundsKey];
+    collector.sounds = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    [defaults synchronize];
 }
 
 - (BOOL)soundWithNameExists:(NSString *)name {
