@@ -25,14 +25,20 @@
 @end
 
 #define kUserDefaultsSensitivityValueKey @"sensitivityValue"
+#define kUserDefaultsBarksHistoryKey @"barksHistoryValue"
 
 @implementation HDViewController
 
 - (void)viewDidLoad {
     self.barks = [[NSMutableArray alloc] init];
     self.barkCount = 0;
+    [self fetchOldBarksFromUserDefaults];
     self.listener = [[HDListener alloc] init];
     self.listener.delegate = self;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillTerminate:) name:UIApplicationWillTerminateNotification object:nil];
     
     float savedSensitivityValue = [self retrieveSavedSensitivityValue];
     if(savedSensitivityValue >= 0) {
@@ -46,6 +52,27 @@
     [self.micSensitivitySlider addTarget:self action:@selector(sliderValueChanged) forControlEvents:UIControlEventValueChanged];
     
     [self disableSaveButton];
+}
+
+- (void)fetchOldBarksFromUserDefaults {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.barks = [[defaults objectForKey:kUserDefaultsBarksHistoryKey] mutableCopy];
+    if(!self.barks) {
+        self.barks = [[NSMutableArray alloc] init];
+    }
+    
+    [self checkIfOldBarksAreTodays];
+    
+}
+
+- (void)checkIfOldBarksAreTodays {
+    for(NSDate *date in self.barks) {
+        if([[NSCalendar currentCalendar] isDateInToday:date]) {
+            self.barkCount++;
+        }
+    }
+    
+    self.barkCountLabel.text = [NSString stringWithFormat:@"%lu today", (long)self.barkCount];
 }
 
 - (IBAction)toggleListeningButtonTapped:(id)sender {
@@ -171,5 +198,18 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+- (void)saveBarksInUserDefaults {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.barks forKey:kUserDefaultsBarksHistoryKey];
+    [defaults synchronize];
+}
+
+- (void)applicationDidEnterBackground:(NSNotification *)notification {
+    [self saveBarksInUserDefaults];
+}
+
+- (void)applicationWillTerminate:(NSNotification *)notification {
+    [self saveBarksInUserDefaults];
+}
 
 @end
