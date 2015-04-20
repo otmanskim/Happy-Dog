@@ -8,6 +8,7 @@
 
 #import "HDViewController.h"
 #import "HDSoundsCollector.h"
+#import "HDBarkHistoryViewController.h"
 
 @interface HDViewController()
 
@@ -15,6 +16,11 @@
 @property (weak, nonatomic) IBOutlet UISlider *micSensitivitySlider;
 @property (weak, nonatomic) IBOutlet UIButton *saveSensitivityButton;
 @property (weak, nonatomic) IBOutlet UIButton *myRecordingsButton;
+@property (weak, nonatomic) IBOutlet UILabel *barkCountLabel;
+@property (weak, nonatomic) IBOutlet UIButton *barkHistoryButton;
+
+@property (strong, nonatomic) NSMutableArray *barks;
+@property (assign, nonatomic) NSInteger barkCount;
 
 @end
 
@@ -23,7 +29,10 @@
 @implementation HDViewController
 
 - (void)viewDidLoad {
+    self.barks = [[NSMutableArray alloc] init];
+    self.barkCount = 0;
     self.listener = [[HDListener alloc] init];
+    self.listener.delegate = self;
     
     float savedSensitivityValue = [self retrieveSavedSensitivityValue];
     if(savedSensitivityValue >= 0) {
@@ -48,6 +57,7 @@
             [self.listener beginRecordingAudio];
             [self.toggleListeningButton setTitle:@"Stop Listening" forState:UIControlStateNormal];
             [self.myRecordingsButton setEnabled:NO];
+            [self.barkHistoryButton setEnabled:NO];
         } else {
             [self displayNoSoundsAlert];
         }
@@ -55,6 +65,7 @@
         [self.listener stopRecordingAudio];
         [self.toggleListeningButton setTitle:@"Start Listening" forState:UIControlStateNormal];
         [self.myRecordingsButton setEnabled:YES];
+        [self.barkHistoryButton setEnabled:YES];
     }
 }
 - (IBAction)saveSensitivityButtonPressed:(id)sender {
@@ -114,6 +125,49 @@
     [alertController addAction:goToMyRecordingsAction];
     [alertController addAction:cancelAction];
     
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)barkDetected {
+    self.barkCount++;
+    self.barkCountLabel.text = [NSString stringWithFormat:@"%ld today", (long)self.barkCount];
+    [self.barks addObject:[NSDate date]];
+}
+
+- (void)soundStartedPlaying {
+    [self.toggleListeningButton setEnabled:NO];
+}
+
+- (void)soundFinishedPlaying {
+    [self.toggleListeningButton setEnabled:YES];
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    BOOL shouldPerform = YES;
+    
+    if([identifier isEqualToString:@"showHistorySegue"]) {
+        if(self.barkCount < 1) {
+            shouldPerform = NO;
+            [self showAlertForNoHistory];
+        }
+    }
+    
+    return shouldPerform;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"showHistorySegue"]) {
+        HDBarkHistoryViewController *barkHistoryVC = (HDBarkHistoryViewController *)segue.destinationViewController;
+        barkHistoryVC.barkHistory = self.barks;
+    }
+}
+
+- (void)showAlertForNoHistory {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"No History" message:@"There is no history yet." preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alertController addAction:okAction];
     [self presentViewController:alertController animated:YES completion:nil];
 }
 

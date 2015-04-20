@@ -41,6 +41,7 @@
     [self.audioRecorder stop];
     self.audioRecorder = nil;
     [self.checkSoundLevelsTimer invalidate];
+    self.checkSoundLevelsTimer = nil;
 }
 
 - (void)prepareAudioRecorder {
@@ -82,7 +83,7 @@
     
     if(self.lowPassResults > self.micSensitivity) {
         self.lowPassResults = 0;
-
+        [self.delegate barkDetected];
         NSLog(@"Barking Detected");
         [self stopRecordingAudio];
         [self playSound];
@@ -90,6 +91,7 @@
 }
 
 - (void)playSound {
+    [self.delegate soundStartedPlaying];
     NSError *error;
 
     [self.audioSession setCategory:AVAudioSessionCategoryPlayback error:&error];
@@ -120,10 +122,12 @@
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    [self.delegate soundFinishedPlaying];
     [self stopAudioAndResumeRecording];
 }
 
 - (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error {
+    [self.delegate soundFinishedPlaying];
     [self stopAudioAndResumeRecording];
 }
 

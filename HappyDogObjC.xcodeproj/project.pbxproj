@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F74A6CF1AE470B90019A158 /* HDBarkHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F74A6CE1AE470B90019A158 /* HDBarkHistoryViewController.m */; };
 		1FB050AB1ADD7AAC0057CA58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050AA1ADD7AAC0057CA58 /* main.m */; };
 		1FB050AE1ADD7AAC0057CA58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050AD1ADD7AAC0057CA58 /* AppDelegate.m */; };
 		1FB050B41ADD7AAC0057CA58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050B21ADD7AAC0057CA58 /* Main.storyboard */; };
@@ -46,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F74A6CC1AE46E6B0019A158 /* HDListenerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HDListenerProtocol.h; path = ../HDListenerProtocol.h; sourceTree = "<group>"; };
+		1F74A6CD1AE470B90019A158 /* HDBarkHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDBarkHistoryViewController.h; sourceTree = "<group>"; };
+		1F74A6CE1AE470B90019A158 /* HDBarkHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDBarkHistoryViewController.m; sourceTree = "<group>"; };
 		1FB050A51ADD7AAC0057CA58 /* HappyDogObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyDogObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FB050A91ADD7AAC0057CA58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FB050AA1ADD7AAC0057CA58 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -180,6 +184,7 @@
 		1FB050E51ADD92F10057CA58 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1F74A6CC1AE46E6B0019A158 /* HDListenerProtocol.h */,
 				1FB050D11ADD7B440057CA58 /* HDListener.h */,
 				1FB050D21ADD7B440057CA58 /* HDListener.m */,
 				1FB050E21ADD92B60057CA58 /* HDSoundRecording.h */,
@@ -195,6 +200,8 @@
 			children = (
 				1FB050CE1ADD7ACF0057CA58 /* HDViewController.h */,
 				1FB050CF1ADD7ACF0057CA58 /* HDViewController.m */,
+				1F74A6CD1AE470B90019A158 /* HDBarkHistoryViewController.h */,
+				1F74A6CE1AE470B90019A158 /* HDBarkHistoryViewController.m */,
 				1FB050DC1ADD91340057CA58 /* HDSoundsListTableViewController.h */,
 				1FB050DD1ADD91340057CA58 /* HDSoundsListTableViewController.m */,
 				1FB050EF1ADDA9330057CA58 /* HDCreateSoundViewController.h */,
@@ -324,6 +331,7 @@
 				1FB050DE1ADD91340057CA58 /* HDSoundsListTableViewController.m in Sources */,
 				1FB050AE1ADD7AAC0057CA58 /* AppDelegate.m in Sources */,
 				1FB050AB1ADD7AAC0057CA58 /* main.m in Sources */,
+				1F74A6CF1AE470B90019A158 /* HDBarkHistoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
