@@ -34,6 +34,7 @@
 		1FB0510C1ADDF0630057CA58 /* hey-eros-2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1FB051061ADDF0630057CA58 /* hey-eros-2.m4a */; };
 		1FB0510D1ADDF0630057CA58 /* hey-eros-3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1FB051071ADDF0630057CA58 /* hey-eros-3.m4a */; };
 		1FB0510F1ADDF5FD0057CA58 /* stop-barking-dog1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB0510E1ADDF5FD0057CA58 /* stop-barking-dog1.png */; };
+		1FE327601AE5F4B80097CF6C /* baby-eros.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FE3275F1AE5F4B80097CF6C /* baby-eros.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		1FB051061ADDF0630057CA58 /* hey-eros-2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "hey-eros-2.m4a"; sourceTree = "<group>"; };
 		1FB051071ADDF0630057CA58 /* hey-eros-3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "hey-eros-3.m4a"; sourceTree = "<group>"; };
 		1FB0510E1ADDF5FD0057CA58 /* stop-barking-dog1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stop-barking-dog1.png"; sourceTree = "<group>"; };
+		1FE3275F1AE5F4B80097CF6C /* baby-eros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "baby-eros.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 		1FB050A81ADD7AAC0057CA58 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1FE3275F1AE5F4B80097CF6C /* baby-eros.png */,
 				1FB050FA1ADDBF960057CA58 /* play-icon.png */,
 				1FB050F21ADDAA950057CA58 /* microphone.png */,
 				1FB050F81ADDADB80057CA58 /* microphone-red.png */,
@@ -299,6 +302,7 @@
 				1FB050D71ADD81280057CA58 /* raygun.wav in Resources */,
 				1FB0510B1ADDF0630057CA58 /* angry-hey-1.m4a in Resources */,
 				1FB050F31ADDAA950057CA58 /* microphone.png in Resources */,
+				1FE327601AE5F4B80097CF6C /* baby-eros.png in Resources */,
 				1FB050DB1ADD83B20057CA58 /* page-turn.mp3 in Resources */,
 				1FB050DA1ADD83B20057CA58 /* pencil.mp3 in Resources */,
 				1FB051091ADDF0630057CA58 /* angry-hey-2.m4a in Resources */,
