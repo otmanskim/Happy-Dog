@@ -73,7 +73,7 @@
     
     NSError *error;
     
-    self.createdSoundFilename = [self newRecordingNameFromTextInput];
+    self.createdSoundFilename = self.recordingNameTextField.text;
     
     // sets the path for audio file
     NSArray *pathComponents = [NSArray arrayWithObjects:
@@ -94,11 +94,6 @@
 
     
     [self.audioRecorder record];
-}
-
-//replaces any spaces with underscores
-- (NSString *)newRecordingNameFromTextInput {
-    return [self.recordingNameTextField.text stringByReplacingOccurrencesOfString:@" " withString:@"_"];
 }
 
 -(void) playRecord

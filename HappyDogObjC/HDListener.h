@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
+#import "HDListenerProtocol.h"
 
 @interface HDListener : NSObject
 
+@property (weak, nonatomic) id<HDListenerDelegate> delegate;
 @property (nonatomic, assign) float micSensitivity;
 
 - (void)beginRecordingAudio;

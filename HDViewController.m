@@ -8,6 +8,7 @@
 
 #import "HDViewController.h"
 #import "HDSoundsCollector.h"
+#import "HDBarkHistoryViewController.h"
 
 @interface HDViewController()
 
@@ -15,15 +16,29 @@
 @property (weak, nonatomic) IBOutlet UISlider *micSensitivitySlider;
 @property (weak, nonatomic) IBOutlet UIButton *saveSensitivityButton;
 @property (weak, nonatomic) IBOutlet UIButton *myRecordingsButton;
+@property (weak, nonatomic) IBOutlet UILabel *barkCountLabel;
+@property (weak, nonatomic) IBOutlet UIButton *barkHistoryButton;
+
+@property (strong, nonatomic) NSMutableArray *allBarks;
+@property (assign, nonatomic) NSInteger todaysBarkCount;
 
 @end
 
 #define kUserDefaultsSensitivityValueKey @"sensitivityValue"
+#define kUserDefaultsBarksHistoryKey @"barksHistoryValue"
 
 @implementation HDViewController
 
 - (void)viewDidLoad {
+    self.allBarks = [[NSMutableArray alloc] init];
+    self.todaysBarkCount = 0;
+    [self fetchOldBarksFromUserDefaults];
     self.listener = [[HDListener alloc] init];
+    self.listener.delegate = self;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillTerminate:) name:UIApplicationWillTerminateNotification object:nil];
     
     float savedSensitivityValue = [self retrieveSavedSensitivityValue];
     if(savedSensitivityValue >= 0) {
@@ -39,6 +54,28 @@
     [self disableSaveButton];
 }
 
+- (void)fetchOldBarksFromUserDefaults {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.allBarks = [[defaults objectForKey:kUserDefaultsBarksHistoryKey] mutableCopy];
+    if(!self.allBarks) {
+        self.allBarks = [[NSMutableArray alloc] init];
+    }
+    
+    [self checkIfOldBarksAreTodays];
+    
+}
+
+- (void)checkIfOldBarksAreTodays {
+    self.todaysBarkCount = 0;
+    for(NSDate *date in self.allBarks) {
+        if([[NSCalendar currentCalendar] isDateInToday:date]) {
+            self.todaysBarkCount++;
+        }
+    }
+    
+    self.barkCountLabel.text = [NSString stringWithFormat:@"%lu today", (long)self.todaysBarkCount];
+}
+
 - (IBAction)toggleListeningButtonTapped:(id)sender {
     
     self.listener.micSensitivity = [self convertSliderValueToSensitivity];
@@ -48,6 +85,7 @@
             [self.listener beginRecordingAudio];
             [self.toggleListeningButton setTitle:@"Stop Listening" forState:UIControlStateNormal];
             [self.myRecordingsButton setEnabled:NO];
+            [self.barkHistoryButton setEnabled:NO];
         } else {
             [self displayNoSoundsAlert];
         }
@@ -55,6 +93,7 @@
         [self.listener stopRecordingAudio];
         [self.toggleListeningButton setTitle:@"Start Listening" forState:UIControlStateNormal];
         [self.myRecordingsButton setEnabled:YES];
+        [self.barkHistoryButton setEnabled:YES];
     }
 }
 - (IBAction)saveSensitivityButtonPressed:(id)sender {
@@ -117,5 +156,61 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+- (void)barkDetected {
+    self.todaysBarkCount++;
+    self.barkCountLabel.text = [NSString stringWithFormat:@"%ld today", (long)self.todaysBarkCount];
+    [self.allBarks addObject:[NSDate date]];
+}
+
+- (void)soundStartedPlaying {
+    [self.toggleListeningButton setEnabled:NO];
+}
+
+- (void)soundFinishedPlaying {
+    [self.toggleListeningButton setEnabled:YES];
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    BOOL shouldPerform = YES;
+    
+    if([identifier isEqualToString:@"showHistorySegue"]) {
+        if(self.allBarks.count < 1) {
+            shouldPerform = NO;
+            [self showAlertForNoHistory];
+        }
+    }
+    
+    return shouldPerform;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"showHistorySegue"]) {
+        HDBarkHistoryViewController *barkHistoryVC = (HDBarkHistoryViewController *)segue.destinationViewController;
+        barkHistoryVC.barkHistory = self.allBarks;
+    }
+}
+
+- (void)showAlertForNoHistory {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"No History" message:@"There is no history yet." preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)saveBarksInUserDefaults {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.allBarks forKey:kUserDefaultsBarksHistoryKey];
+    [defaults synchronize];
+}
+
+- (void)applicationDidEnterBackground:(NSNotification *)notification {
+    [self saveBarksInUserDefaults];
+}
+
+- (void)applicationWillTerminate:(NSNotification *)notification {
+    [self saveBarksInUserDefaults];
+}
 
 @end
