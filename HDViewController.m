@@ -19,8 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *barkCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *barkHistoryButton;
 
-@property (strong, nonatomic) NSMutableArray *barks;
-@property (assign, nonatomic) NSInteger barkCount;
+@property (strong, nonatomic) NSMutableArray *allBarks;
+@property (assign, nonatomic) NSInteger todaysBarkCount;
 
 @end
 
@@ -30,8 +30,8 @@
 @implementation HDViewController
 
 - (void)viewDidLoad {
-    self.barks = [[NSMutableArray alloc] init];
-    self.barkCount = 0;
+    self.allBarks = [[NSMutableArray alloc] init];
+    self.todaysBarkCount = 0;
     [self fetchOldBarksFromUserDefaults];
     self.listener = [[HDListener alloc] init];
     self.listener.delegate = self;
@@ -56,9 +56,9 @@
 
 - (void)fetchOldBarksFromUserDefaults {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.barks = [[defaults objectForKey:kUserDefaultsBarksHistoryKey] mutableCopy];
-    if(!self.barks) {
-        self.barks = [[NSMutableArray alloc] init];
+    self.allBarks = [[defaults objectForKey:kUserDefaultsBarksHistoryKey] mutableCopy];
+    if(!self.allBarks) {
+        self.allBarks = [[NSMutableArray alloc] init];
     }
     
     [self checkIfOldBarksAreTodays];
@@ -66,13 +66,14 @@
 }
 
 - (void)checkIfOldBarksAreTodays {
-    for(NSDate *date in self.barks) {
+    self.todaysBarkCount = 0;
+    for(NSDate *date in self.allBarks) {
         if([[NSCalendar currentCalendar] isDateInToday:date]) {
-            self.barkCount++;
+            self.todaysBarkCount++;
         }
     }
     
-    self.barkCountLabel.text = [NSString stringWithFormat:@"%lu today", (long)self.barkCount];
+    self.barkCountLabel.text = [NSString stringWithFormat:@"%lu today", (long)self.todaysBarkCount];
 }
 
 - (IBAction)toggleListeningButtonTapped:(id)sender {
@@ -156,9 +157,9 @@
 }
 
 - (void)barkDetected {
-    self.barkCount++;
-    self.barkCountLabel.text = [NSString stringWithFormat:@"%ld today", (long)self.barkCount];
-    [self.barks addObject:[NSDate date]];
+    self.todaysBarkCount++;
+    self.barkCountLabel.text = [NSString stringWithFormat:@"%ld today", (long)self.todaysBarkCount];
+    [self.allBarks addObject:[NSDate date]];
 }
 
 - (void)soundStartedPlaying {
@@ -173,7 +174,7 @@
     BOOL shouldPerform = YES;
     
     if([identifier isEqualToString:@"showHistorySegue"]) {
-        if(self.barkCount < 1) {
+        if(self.allBarks.count < 1) {
             shouldPerform = NO;
             [self showAlertForNoHistory];
         }
@@ -185,7 +186,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"showHistorySegue"]) {
         HDBarkHistoryViewController *barkHistoryVC = (HDBarkHistoryViewController *)segue.destinationViewController;
-        barkHistoryVC.barkHistory = self.barks;
+        barkHistoryVC.barkHistory = self.allBarks;
     }
 }
 
@@ -200,7 +201,7 @@
 
 - (void)saveBarksInUserDefaults {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:self.barks forKey:kUserDefaultsBarksHistoryKey];
+    [defaults setObject:self.allBarks forKey:kUserDefaultsBarksHistoryKey];
     [defaults synchronize];
 }
 

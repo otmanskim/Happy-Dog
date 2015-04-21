@@ -80,7 +80,10 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.barkHistory.count;
+    NSString *daySection = self.dateSections[section];
+    NSArray *datesInSection = [self getDatesForDay:daySection];
+    
+    return datesInSection.count;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
