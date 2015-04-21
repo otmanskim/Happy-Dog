@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HDHistoryProtocol.h"
 
 @interface HDBarkHistoryViewController : UIViewController
 
 @property (nonatomic, strong) NSArray *barkHistory;
+@property (weak, nonatomic) id<HDHistoryProtocol> delegate;
 
 @end

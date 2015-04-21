@@ -50,6 +50,10 @@
     [self.recordingNameTextField setBackgroundColor:[UIColor brownColor]];
     [self.recordingNameTextField setTextColor:[UIColor cyanColor]];
     self.recordingNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"New Recording Name" attributes:@{NSForegroundColorAttributeName: [UIColor cyanColor]}];
+    self.recordingNameTextField.layer.borderColor = [UIColor cyanColor].CGColor;
+    self.recordingNameTextField.layer.borderWidth = 1.0;
+    self.recordingNameTextField.layer.masksToBounds = YES;
+    self.recordingNameTextField.tintColor = [UIColor whiteColor];
     
     [self.recordLabel setTextColor:[UIColor cyanColor]];
     [self.playRecordingButton setTitleColor:[UIColor brownColor] forState:UIControlStateNormal];
