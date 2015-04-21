@@ -9,8 +9,9 @@
 #import "HDViewController.h"
 #import "HDSoundsCollector.h"
 #import "HDBarkHistoryViewController.h"
+#import "HDHistoryProtocol.h"
 
-@interface HDViewController()
+@interface HDViewController() <HDHistoryProtocol>
 
 @property (weak, nonatomic) IBOutlet UIButton *toggleListeningButton;
 @property (weak, nonatomic) IBOutlet UISlider *micSensitivitySlider;
@@ -207,6 +208,7 @@
     if([segue.identifier isEqualToString:@"showHistorySegue"]) {
         HDBarkHistoryViewController *barkHistoryVC = (HDBarkHistoryViewController *)segue.destinationViewController;
         barkHistoryVC.barkHistory = self.allBarks;
+        barkHistoryVC.delegate = self;
     }
 }
 
@@ -223,6 +225,12 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:self.allBarks forKey:kUserDefaultsBarksHistoryKey];
     [defaults synchronize];
+}
+
+- (void)didClearHistory {
+    [self.allBarks removeAllObjects];
+    [self saveBarksInUserDefaults];
+    [self checkIfOldBarksAreTodays];
 }
 
 - (void)applicationDidEnterBackground:(NSNotification *)notification {

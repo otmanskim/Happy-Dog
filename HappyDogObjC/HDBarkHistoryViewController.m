@@ -14,7 +14,6 @@
 
 @property (strong, nonatomic) NSMutableArray *dateSections;
 @property (strong, nonatomic) NSCalendar *calendar;
-@property (weak, nonatomic) IBOutlet UIView *toolbarBackgroundView;
 @property (weak, nonatomic) IBOutlet UILabel *historyTitleLabel;
 
 @end
@@ -36,9 +35,11 @@
 - (void)setupNavigationItems {
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonPressed)];
     
+    UIBarButtonItem *clearHistoryButton = [[UIBarButtonItem alloc] initWithTitle:@"Clear" style:UIBarButtonItemStyleDone target:self action:@selector(clearHistoryButtonPressed)];
+    
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
-    [self.toolbar setItems:@[flexibleSpace, closeButton] animated:NO];
+    [self.toolbar setItems:@[clearHistoryButton, flexibleSpace, closeButton] animated:NO];
 }
 
 - (void)setupUI {
@@ -196,7 +197,6 @@
 
 - (NSString *)timeStringFromDate:(NSDate *)date {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//    [formatter setDateFormat: @"yyyy-MM-dd, HH:mm:ss"];
     [formatter setDateFormat: @"hh:mm a"];
 
     
@@ -207,6 +207,21 @@
 
 - (void)doneButtonPressed {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)clearHistoryButtonPressed {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Clear History?" message:@"This will delete all recorded history data." preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Clear" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self.delegate didClearHistory];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alertController addAction:okAction];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end
