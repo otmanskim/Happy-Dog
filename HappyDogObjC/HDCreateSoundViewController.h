@@ -11,6 +11,4 @@
 
 @interface HDCreateSoundViewController : UIViewController 
 
-@property (strong, nonatomic) HDSoundsListTableViewController *parentViewController;
-
 @end
