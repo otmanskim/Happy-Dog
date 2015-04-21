@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) NSMutableArray *dateSections;
 @property (strong, nonatomic) NSCalendar *calendar;
+@property (weak, nonatomic) IBOutlet UIView *toolbarBackgroundView;
+@property (weak, nonatomic) IBOutlet UILabel *historyTitleLabel;
 
 @end
 
@@ -22,19 +24,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.calendar = [NSCalendar currentCalendar];
-    [self setupNavigationItems];
     self.historyTableView.delegate = self;
     self.historyTableView.dataSource = self;
     self.dateSections = [[NSMutableArray alloc] init];
     [self createSectionsArray];
+    
+    [self setupNavigationItems];
+    [self setupUI];
 }
 
 - (void)setupNavigationItems {
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonPressed)];
     
-    UIBarButtonItem *flexibleSpaceLeft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
-    [self.toolbar setItems:@[flexibleSpaceLeft, closeButton] animated:NO];
+    [self.toolbar setItems:@[flexibleSpace, closeButton] animated:NO];
+}
+
+- (void)setupUI {
+    self.historyTableView.backgroundColor = [UIColor brownColor];
+    [self.historyTableView setSeparatorColor:[UIColor cyanColor]];
+    self.view.backgroundColor = [UIColor brownColor];
+    [self.historyTitleLabel setTextColor:[UIColor brownColor]];
 }
 
 - (void)createSectionsArray {
@@ -86,6 +97,25 @@
     return datesInSection.count;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
+    if (sectionTitle == nil) {
+        return nil;
+    }
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.frame = CGRectMake(5, 0, 320, 20);
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor brownColor];
+    label.text = sectionTitle;
+    
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor cyanColor];
+    [view addSubview:label];
+    
+    return view;
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
     NSString *dateString = self.dateSections[section];
@@ -131,6 +161,9 @@
     NSString *dateString = [self timeStringFromDate:date];
     
     cell.textLabel.text = dateString;
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.backgroundColor = [UIColor brownColor];
+    
     
     return cell;
 }

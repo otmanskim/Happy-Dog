@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *myRecordingsButton;
 @property (weak, nonatomic) IBOutlet UILabel *barkCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *barkHistoryButton;
+@property (weak, nonatomic) IBOutlet UILabel *sensitivityLabel;
 
 @property (strong, nonatomic) NSMutableArray *allBarks;
 @property (assign, nonatomic) NSInteger todaysBarkCount;
@@ -30,6 +31,7 @@
 @implementation HDViewController
 
 - (void)viewDidLoad {
+    [self setupUI];
     self.allBarks = [[NSMutableArray alloc] init];
     self.todaysBarkCount = 0;
     [self fetchOldBarksFromUserDefaults];
@@ -52,6 +54,24 @@
     [self.micSensitivitySlider addTarget:self action:@selector(sliderValueChanged) forControlEvents:UIControlEventValueChanged];
     
     [self disableSaveButton];
+}
+
+- (void)setupUI {
+    self.navigationController.navigationBar.backgroundColor = [UIColor cyanColor];
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor brownColor]}];
+
+    self.toggleListeningButton.backgroundColor = [UIColor cyanColor];
+    [self.toggleListeningButton setTitleColor:[UIColor brownColor] forState:UIControlStateNormal];
+    
+    self.view.backgroundColor = [UIColor brownColor];
+    [self.barkCountLabel setTextColor:[UIColor whiteColor]];
+    [self.sensitivityLabel setTextColor:[UIColor whiteColor]];
+    [self.barkHistoryButton setTitleColor:[UIColor cyanColor] forState:UIControlStateNormal];
+    [self.myRecordingsButton setTitleColor:[UIColor cyanColor] forState:UIControlStateNormal];
+    
+    [self.saveSensitivityButton setTitleColor:[UIColor cyanColor] forState:UIControlStateNormal];
+    self.micSensitivitySlider.tintColor = [UIColor cyanColor];
 }
 
 - (void)fetchOldBarksFromUserDefaults {
@@ -132,13 +152,13 @@
 - (void)disableSaveButton {
     [self.saveSensitivityButton setTitle:@"Saved" forState:UIControlStateNormal];
     [self.saveSensitivityButton setEnabled:NO];
-    self.saveSensitivityButton.titleLabel.textColor = [UIColor grayColor];
+    [self.saveSensitivityButton setAlpha:0.5];
 }
 
 - (void)enableSaveButton {
     [self.saveSensitivityButton setTitle:@"Save" forState:UIControlStateNormal];
     [self.saveSensitivityButton setEnabled:YES];
-    self.saveSensitivityButton.titleLabel.textColor = self.view.tintColor;
+    [self.saveSensitivityButton setAlpha:1.0];
 }
 
 - (void)displayNoSoundsAlert {

@@ -110,6 +110,7 @@
                         <outlet property="micSensitivitySlider" destination="5Ur-FF-kC4" id="qdG-5e-SLo"/>
                         <outlet property="myRecordingsButton" destination="4rz-uJ-xI1" id="cK8-yq-Xev"/>
                         <outlet property="saveSensitivityButton" destination="1HW-Jl-Wt6" id="BEj-f4-w2k"/>
+                        <outlet property="sensitivityLabel" destination="94l-eq-pcB" id="WJa-UH-Cge"/>
                         <outlet property="toggleListeningButton" destination="LVp-XK-nlQ" id="d3o-mD-78y"/>
                     </connections>
                 </viewController>
@@ -129,6 +130,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxO-6a-K7H" userLabel="Status Bar Background">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxB-Bb-7Mf">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
@@ -160,20 +166,33 @@
                                     <outlet property="delegate" destination="lN0-qf-Lfh" id="xjt-kW-cQA"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhW-Nx-X4l">
+                                <rect key="frame" x="274" y="32" width="53" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qsx-SO-q2D" firstAttribute="top" secondItem="WxB-Bb-7Mf" secondAttribute="bottom" id="7Eu-Ca-LXr"/>
+                            <constraint firstItem="dxO-6a-K7H" firstAttribute="leading" secondItem="WxB-Bb-7Mf" secondAttribute="leading" id="8Pr-sD-9sq"/>
+                            <constraint firstItem="dxO-6a-K7H" firstAttribute="bottom" secondItem="WxB-Bb-7Mf" secondAttribute="top" id="CrE-Ut-QPA"/>
                             <constraint firstAttribute="centerX" secondItem="qsx-SO-q2D" secondAttribute="centerX" id="IJv-c4-z4y"/>
+                            <constraint firstAttribute="centerX" secondItem="WxB-Bb-7Mf" secondAttribute="centerX" id="LF8-iX-Ajm"/>
                             <constraint firstAttribute="width" secondItem="WxB-Bb-7Mf" secondAttribute="width" id="NgI-rU-X7x"/>
+                            <constraint firstItem="dxO-6a-K7H" firstAttribute="top" secondItem="8NM-z8-mZz" secondAttribute="top" id="avq-37-uM1"/>
                             <constraint firstAttribute="centerY" secondItem="qsx-SO-q2D" secondAttribute="centerY" constant="-32" id="e3N-lc-HFP"/>
+                            <constraint firstAttribute="centerX" secondItem="AhW-Nx-X4l" secondAttribute="centerX" constant="-0.5" id="gCo-dC-B9W"/>
                             <constraint firstItem="WxB-Bb-7Mf" firstAttribute="top" secondItem="6IG-q4-IjV" secondAttribute="bottom" id="kHY-6y-Aec"/>
                             <constraint firstItem="WxB-Bb-7Mf" firstAttribute="leading" secondItem="qsx-SO-q2D" secondAttribute="leading" id="kHv-tg-OY2"/>
-                            <constraint firstItem="WxB-Bb-7Mf" firstAttribute="leading" secondItem="8NM-z8-mZz" secondAttribute="leadingMargin" constant="-16" id="n3i-Zv-in6"/>
+                            <constraint firstItem="dxO-6a-K7H" firstAttribute="width" secondItem="8NM-z8-mZz" secondAttribute="width" id="u7D-mb-dBY"/>
+                            <constraint firstItem="WxB-Bb-7Mf" firstAttribute="centerY" secondItem="AhW-Nx-X4l" secondAttribute="centerY" constant="0.5" id="yt4-lG-W6i"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="historyTableView" destination="qsx-SO-q2D" id="Ow3-PS-EoT"/>
+                        <outlet property="historyTitleLabel" destination="AhW-Nx-X4l" id="pHZ-bm-KyB"/>
                         <outlet property="toolbar" destination="WxB-Bb-7Mf" id="ZGD-D9-Voi"/>
                     </connections>
                 </viewController>
@@ -254,7 +273,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuL-MR-Ybo">
-                                <rect key="frame" x="206" y="401" width="189" height="30"/>
+                                <rect key="frame" x="181" y="416" width="239" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="239" id="b8M-TK-TQW"/>
+                                </constraints>
                                 <state key="normal" title="Play Back Recorded Sound">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -266,6 +288,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="PuL-MR-Ybo" firstAttribute="top" secondItem="yRx-DK-hxN" secondAttribute="bottom" constant="8" id="0F8-X0-LX7"/>
+                            <constraint firstItem="PuL-MR-Ybo" firstAttribute="top" secondItem="yRx-DK-hxN" secondAttribute="bottom" constant="23" id="3WU-A3-FdK"/>
                             <constraint firstAttribute="centerX" secondItem="AF8-fu-3bP" secondAttribute="centerX" id="Ci0-MY-tMf"/>
                             <constraint firstAttribute="centerY" secondItem="AF8-fu-3bP" secondAttribute="centerY" id="JBB-2Q-vyB"/>
                             <constraint firstAttribute="centerX" secondItem="yRx-DK-hxN" secondAttribute="centerX" id="LAL-T1-P65"/>
@@ -278,6 +301,7 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="zTg-9x-oeh"/>
+                                <exclude reference="0F8-X0-LX7"/>
                             </mask>
                         </variation>
                     </view>
