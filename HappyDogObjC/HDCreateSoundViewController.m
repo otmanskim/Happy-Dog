@@ -10,7 +10,7 @@
 #import "HDSoundsCollector.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface HDCreateSoundViewController ()
+@interface HDCreateSoundViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UITextField *recordingNameTextField;
 @property (weak, nonatomic) IBOutlet UIButton *playRecordingButton;
@@ -30,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNavigationItems];
+    [self setupViewUI];
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped)];
     [self.view addGestureRecognizer:tapRecognizer];
@@ -41,6 +42,29 @@
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonPressed)];
     
     self.navigationItem.rightBarButtonItem = doneButton;
+}
+
+- (void)setupViewUI {
+    self.recordingNameTextField.delegate = self;
+    self.view.backgroundColor = [UIColor brownColor];
+    [self.recordingNameTextField setBackgroundColor:[UIColor brownColor]];
+    [self.recordingNameTextField setTextColor:[UIColor cyanColor]];
+    self.recordingNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"New Recording Name" attributes:@{NSForegroundColorAttributeName: [UIColor cyanColor]}];
+    
+    [self.recordLabel setTextColor:[UIColor cyanColor]];
+    [self.playRecordingButton setTitleColor:[UIColor brownColor] forState:UIControlStateNormal];
+    
+    [self.playRecordingButton setBackgroundColor:[UIColor cyanColor]];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    textField.placeholder = @"";
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if(textField.text.length < 1) {
+        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"New Recording Name" attributes:@{NSForegroundColorAttributeName: [UIColor cyanColor]}];
+    }
 }
 
 - (IBAction)recordButtonTapped:(id)sender {
