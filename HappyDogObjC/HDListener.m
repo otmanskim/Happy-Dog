@@ -8,6 +8,7 @@
 
 #import "HDListener.h"
 #import "HDSoundsCollector.h"
+#import <Parse/Parse.h>
 
 @interface HDListener() <AVAudioPlayerDelegate>
 
@@ -87,7 +88,15 @@
         NSLog(@"Barking Detected");
         [self stopRecordingAudio];
         [self playSound];
+        [self sendPushNotification];
     }
+}
+
+- (void)sendPushNotification {
+    PFPush *push = [[PFPush alloc] init];
+    [push setChannel:@"Eros_Bark"];
+    [push setMessage:@"A bark was just detected from Eros!"];
+    [push sendPushInBackground];
 }
 
 - (void)playSound {

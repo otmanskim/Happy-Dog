@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HDSoundsCollector.h"
 #import "HDSoundRecording.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -19,9 +20,37 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [Parse setApplicationId:@"4ZdCm6J4pCdMAdtgxZMv9PFT9xSfBtqRkOq94FVj"
+                  clientKey:@"0Xn3swuVfCFISAkTlYCmWKdWEM3HB507FVMVMDUG"];
+    
     [self populateSoundsArray];
     
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
+    
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
+    [application registerUserNotificationSettings:settings];
+    [application registerForRemoteNotifications];
+    
+    
     return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"Registered successfully for Remote Notifications with Device Token: %@", deviceToken);
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation addUniqueObject:@"Eros_Bark" forKey:@"channels"];
+    
+    [currentInstallation saveInBackground];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"Failed to register for remove notifications with error: %@", error.description);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
 }
 
 - (void)populateSoundsArray {

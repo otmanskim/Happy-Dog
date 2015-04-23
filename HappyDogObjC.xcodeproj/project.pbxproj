@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F4BFBDB1AE936970088804E /* HappyDog_Development.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BFBDA1AE936970088804E /* HappyDog_Development.mobileprovision */; };
+		1F4BFBDE1AE9401F0088804E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBDC1AE9401F0088804E /* Bolts.framework */; };
+		1F4BFBDF1AE9401F0088804E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBDD1AE9401F0088804E /* Parse.framework */; };
+		1F4BFBE11AE940540088804E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBE01AE940540088804E /* AudioToolbox.framework */; };
+		1F4BFBE31AE9405B0088804E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBE21AE9405B0088804E /* CFNetwork.framework */; };
+		1F4BFBE51AE940610088804E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBE41AE940610088804E /* CoreGraphics.framework */; };
+		1F4BFBE71AE940670088804E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBE61AE940670088804E /* CoreLocation.framework */; };
+		1F4BFBE91AE9406E0088804E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBE81AE9406E0088804E /* MobileCoreServices.framework */; };
+		1F4BFBEB1AE940750088804E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBEA1AE940750088804E /* QuartzCore.framework */; };
+		1F4BFBED1AE940810088804E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBEC1AE940810088804E /* Security.framework */; };
+		1F4BFBEF1AE9408A0088804E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBEE1AE9408A0088804E /* StoreKit.framework */; };
+		1F4BFBF11AE940930088804E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBF01AE940930088804E /* SystemConfiguration.framework */; };
+		1F4BFBF31AE9409E0088804E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBF21AE9409E0088804E /* libz.dylib */; };
+		1F4BFBF51AE940AB0088804E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBF41AE940AB0088804E /* libsqlite3.dylib */; };
 		1F74A6CF1AE470B90019A158 /* HDBarkHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F74A6CE1AE470B90019A158 /* HDBarkHistoryViewController.m */; };
 		1FB050AB1ADD7AAC0057CA58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050AA1ADD7AAC0057CA58 /* main.m */; };
 		1FB050AE1ADD7AAC0057CA58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050AD1ADD7AAC0057CA58 /* AppDelegate.m */; };
@@ -48,6 +62,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F4BFBDA1AE936970088804E /* HappyDog_Development.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = HappyDog_Development.mobileprovision; sourceTree = "<group>"; };
+		1F4BFBDC1AE9401F0088804E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		1F4BFBDD1AE9401F0088804E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		1F4BFBE01AE940540088804E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		1F4BFBE21AE9405B0088804E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		1F4BFBE41AE940610088804E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1F4BFBE61AE940670088804E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1F4BFBE81AE9406E0088804E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		1F4BFBEA1AE940750088804E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1F4BFBEC1AE940810088804E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1F4BFBEE1AE9408A0088804E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		1F4BFBF01AE940930088804E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1F4BFBF21AE9409E0088804E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		1F4BFBF41AE940AB0088804E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		1F74A6CC1AE46E6B0019A158 /* HDListenerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HDListenerProtocol.h; path = ../HDListenerProtocol.h; sourceTree = "<group>"; };
 		1F74A6CD1AE470B90019A158 /* HDBarkHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDBarkHistoryViewController.h; sourceTree = "<group>"; };
 		1F74A6CE1AE470B90019A158 /* HDBarkHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDBarkHistoryViewController.m; sourceTree = "<group>"; };
@@ -97,7 +125,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F4BFBF51AE940AB0088804E /* libsqlite3.dylib in Frameworks */,
+				1F4BFBF31AE9409E0088804E /* libz.dylib in Frameworks */,
+				1F4BFBF11AE940930088804E /* SystemConfiguration.framework in Frameworks */,
+				1F4BFBEF1AE9408A0088804E /* StoreKit.framework in Frameworks */,
+				1F4BFBED1AE940810088804E /* Security.framework in Frameworks */,
+				1F4BFBEB1AE940750088804E /* QuartzCore.framework in Frameworks */,
+				1F4BFBE91AE9406E0088804E /* MobileCoreServices.framework in Frameworks */,
+				1F4BFBE71AE940670088804E /* CoreLocation.framework in Frameworks */,
+				1F4BFBE51AE940610088804E /* CoreGraphics.framework in Frameworks */,
+				1F4BFBE31AE9405B0088804E /* CFNetwork.framework in Frameworks */,
+				1F4BFBE11AE940540088804E /* AudioToolbox.framework in Frameworks */,
 				1FB050D51ADD7B5D0057CA58 /* AVFoundation.framework in Frameworks */,
+				1F4BFBDF1AE9401F0088804E /* Parse.framework in Frameworks */,
+				1F4BFBDE1AE9401F0088804E /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,13 +152,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F4BFBF61AE940C50088804E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F4BFBDC1AE9401F0088804E /* Bolts.framework */,
+				1F4BFBDD1AE9401F0088804E /* Parse.framework */,
+				1FB050D41ADD7B5D0057CA58 /* AVFoundation.framework */,
+				1F4BFBF41AE940AB0088804E /* libsqlite3.dylib */,
+				1F4BFBF21AE9409E0088804E /* libz.dylib */,
+				1F4BFBF01AE940930088804E /* SystemConfiguration.framework */,
+				1F4BFBEE1AE9408A0088804E /* StoreKit.framework */,
+				1F4BFBEC1AE940810088804E /* Security.framework */,
+				1F4BFBEA1AE940750088804E /* QuartzCore.framework */,
+				1F4BFBE81AE9406E0088804E /* MobileCoreServices.framework */,
+				1F4BFBE61AE940670088804E /* CoreLocation.framework */,
+				1F4BFBE41AE940610088804E /* CoreGraphics.framework */,
+				1F4BFBE21AE9405B0088804E /* CFNetwork.framework */,
+				1F4BFBE01AE940540088804E /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1FB0509C1ADD7AAC0057CA58 = {
 			isa = PBXGroup;
 			children = (
 				1FB050A71ADD7AAC0057CA58 /* HappyDogObjC */,
 				1FB050C11ADD7AAC0057CA58 /* HappyDogObjCTests */,
 				1FB050A61ADD7AAC0057CA58 /* Products */,
-				1FB050D41ADD7B5D0057CA58 /* AVFoundation.framework */,
+				1F4BFBF61AE940C50088804E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,6 +210,7 @@
 		1FB050A81ADD7AAC0057CA58 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1F4BFBDA1AE936970088804E /* HappyDog_Development.mobileprovision */,
 				1FE3275F1AE5F4B80097CF6C /* baby-eros.png */,
 				1FB050FA1ADDBF960057CA58 /* play-icon.png */,
 				1FB050F21ADDAA950057CA58 /* microphone.png */,
@@ -264,6 +327,7 @@
 				TargetAttributes = {
 					1FB050A41ADD7AAC0057CA58 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = UN2446H3FP;
 					};
 					1FB050BD1ADD7AAC0057CA58 = {
 						CreatedOnToolsVersion = 6.3;
@@ -304,6 +368,7 @@
 				1FB050D71ADD81280057CA58 /* raygun.wav in Resources */,
 				1FB0510B1ADDF0630057CA58 /* angry-hey-1.m4a in Resources */,
 				1FB050F31ADDAA950057CA58 /* microphone.png in Resources */,
+				1F4BFBDB1AE936970088804E /* HappyDog_Development.mobileprovision in Resources */,
 				1FE327601AE5F4B80097CF6C /* baby-eros.png in Resources */,
 				1FB050DB1ADD83B20057CA58 /* page-turn.mp3 in Resources */,
 				1FB050DA1ADD83B20057CA58 /* pencil.mp3 in Resources */,
@@ -396,7 +461,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -440,6 +506,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -465,9 +532,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HappyDogObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7829597d-6b6b-4550-a11b-5db19632a5d8";
 			};
 			name = Debug;
 		};
@@ -475,9 +549,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HappyDogObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7829597d-6b6b-4550-a11b-5db19632a5d8";
 			};
 			name = Release;
 		};
