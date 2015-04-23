@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HDSoundsCollector.h"
 #import "HDSoundRecording.h"
+#import "HDConstants.h"
 #import <Parse/Parse.h>
 
 @interface AppDelegate ()
@@ -41,8 +42,66 @@
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation addUniqueObject:@"Eros_Bark" forKey:@"channels"];
+    [currentInstallation saveInBackground];
+    
+    [self updatePushNotificationListenerChannel];
+}
+
+- (void)stopListeningForCurrentChannel {
+    NSString *channel = [self channelName];
+
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation removeObject:channel forKey:@"channels"];
+    [currentInstallation saveInBackground];
+}
+
+/**
+ Either starts or stops listening on the channel with the current saved dog name, depending on the "isListeningDevice" value
+ */
+- (void)updatePushNotificationListenerChannel {
+    
+    NSString *channel = [self channelName];
+    
+    if(channel.length == 0) {
+        channel = @"Default_Channel";
+    }
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:kNSUserDefaultsIsListeningDeviceKey]) {
+        //if NOT a listener, add channel so it can get push notifications from the listener
+        [currentInstallation addUniqueObject:channel forKey:@"channels"];
+    } else {
+        //else remove it so we aren't listening
+        [currentInstallation removeObject:channel forKey:@"channels"];
+    }
     
     [currentInstallation saveInBackground];
+}
+
+- (void)sendBarkPushNotification {
+    NSString *dogName = [[NSUserDefaults standardUserDefaults] objectForKey:kNSUserDefaultsDogNameKey];
+    
+    if(dogName.length == 0) {
+        dogName = @"Default_Name";
+    }
+    
+    NSString *channelString = [NSString stringWithFormat:@"%@_Bark",dogName];
+    
+    NSString *messageString = [NSString stringWithFormat:@"A bark was just detected from %@!", dogName];
+    
+    PFPush *push = [[PFPush alloc] init];
+    [push setChannel:channelString];
+    [push setMessage:messageString];
+    [push sendPushInBackground];
+}
+
+- (NSString *)channelName {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *dogName = [defaults objectForKey:kNSUserDefaultsDogNameKey];
+    NSString *channelName = [NSString stringWithFormat:@"%@_Bark",dogName];
+    
+    return channelName;
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {

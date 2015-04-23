@@ -8,6 +8,8 @@
 
 #import "HDListener.h"
 #import "HDSoundsCollector.h"
+#import "HDConstants.h"
+#import "AppDelegate.h"
 #import <Parse/Parse.h>
 
 @interface HDListener() <AVAudioPlayerDelegate>
@@ -93,10 +95,10 @@
 }
 
 - (void)sendPushNotification {
-    PFPush *push = [[PFPush alloc] init];
-    [push setChannel:@"Eros_Bark"];
-    [push setMessage:@"A bark was just detected from Eros!"];
-    [push sendPushInBackground];
+    //if this device is a listener, send push notification
+    if([[NSUserDefaults standardUserDefaults] boolForKey:kNSUserDefaultsIsListeningDeviceKey]) {
+        [((AppDelegate *)[UIApplication sharedApplication].delegate) sendBarkPushNotification];
+    }
 }
 
 - (void)playSound {

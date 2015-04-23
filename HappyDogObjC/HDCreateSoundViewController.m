@@ -213,6 +213,7 @@
     BOOL valid = [[string stringByTrimmingCharactersInSet:allowedCharacters] isEqualToString:@""];
     return valid;
 }
+
 - (IBAction)playRecordingButtonTapped:(id)sender {
     [self playRecord];
 }

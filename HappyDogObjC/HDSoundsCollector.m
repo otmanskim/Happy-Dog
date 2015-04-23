@@ -7,15 +7,13 @@
 //
 
 #import "HDSoundsCollector.h"
+#import "HDConstants.h"
 
 @interface HDSoundsCollector()
 
 @property (nonatomic, strong) NSMutableArray *sounds;
 
 @end
-
-#define kUserDefaultsSavedSoundsKey @"savedSounds"
-
 
 @implementation HDSoundsCollector
 
@@ -53,7 +51,7 @@
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:collector.sounds];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:data forKey:kUserDefaultsSavedSoundsKey];
+    [defaults setObject:data forKey:kNSUserDefaultsSavedSoundsKey];
     [defaults synchronize];
 }
 
@@ -61,7 +59,7 @@
     HDSoundsCollector *collector = [HDSoundsCollector sharedInstance];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    NSData *data = [defaults objectForKey:kUserDefaultsSavedSoundsKey];
+    NSData *data = [defaults objectForKey:kNSUserDefaultsSavedSoundsKey];
     collector.sounds = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     [defaults synchronize];
 }
