@@ -103,7 +103,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     //if name has changed, stop listening to old channel
-    if(![self.dogNameTextField.text isEqualToString:self.nameString]) {
+    if(self.nameString && ![self.dogNameTextField.text isEqualToString:self.nameString]) {
         [appDelegate stopListeningForCurrentChannel];
     }
     
