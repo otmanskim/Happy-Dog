@@ -8,6 +8,9 @@
 
 #import "HDListener.h"
 #import "HDSoundsCollector.h"
+#import "HDConstants.h"
+#import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 @interface HDListener() <AVAudioPlayerDelegate>
 
@@ -87,6 +90,14 @@
         NSLog(@"Barking Detected");
         [self stopRecordingAudio];
         [self playSound];
+        [self sendPushNotification];
+    }
+}
+
+- (void)sendPushNotification {
+    //if this device is a listener, send push notification
+    if([[NSUserDefaults standardUserDefaults] boolForKey:kNSUserDefaultsIsListeningDeviceKey]) {
+        [((AppDelegate *)[UIApplication sharedApplication].delegate) sendBarkPushNotification];
     }
 }
 

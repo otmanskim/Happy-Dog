@@ -10,8 +10,12 @@
 #import "HDSoundsCollector.h"
 #import "HDBarkHistoryViewController.h"
 #import "HDHistoryProtocol.h"
+#import "HDSettingsViewController.h"
+#import "HDConstants.h"
 
-@interface HDViewController() <HDHistoryProtocol>
+#define kSettingsPopoverHeight 200
+
+@interface HDViewController() <HDHistoryProtocol, UIPopoverPresentationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *toggleListeningButton;
 @property (weak, nonatomic) IBOutlet UISlider *micSensitivitySlider;
@@ -25,9 +29,6 @@
 @property (assign, nonatomic) NSInteger todaysBarkCount;
 
 @end
-
-#define kUserDefaultsSensitivityValueKey @"sensitivityValue"
-#define kUserDefaultsBarksHistoryKey @"barksHistoryValue"
 
 @implementation HDViewController
 
@@ -209,6 +210,21 @@
         HDBarkHistoryViewController *barkHistoryVC = (HDBarkHistoryViewController *)segue.destinationViewController;
         barkHistoryVC.barkHistory = self.allBarks;
         barkHistoryVC.delegate = self;
+    } else if([segue.identifier isEqualToString:@"settingsSegue"]) {
+        //get values to populate saved settings
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *dogName = [defaults objectForKey:kNSUserDefaultsDogNameKey];
+        BOOL isListenerDevice = [defaults boolForKey:kNSUserDefaultsIsListeningDeviceKey];
+        
+        UINavigationController *navCon = (UINavigationController *)segue.destinationViewController;
+        HDSettingsViewController *settingsVC = (HDSettingsViewController *)navCon.visibleViewController;
+        settingsVC.nameString = dogName;
+        settingsVC.isListenerDevice = isListenerDevice;
+        
+        UIPopoverPresentationController *ppc = settingsVC.popoverPresentationController;
+        CGSize minimumSize = [settingsVC.view systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        settingsVC.preferredContentSize = CGSizeMake(minimumSize.width, kSettingsPopoverHeight);
+        ppc.delegate = self;
     }
 }
 
@@ -240,5 +256,19 @@
 - (void)applicationWillTerminate:(NSNotification *)notification {
     [self saveBarksInUserDefaults];
 }
+
+- (IBAction)settingsButtonTapped:(id)sender {
+    
+}
+
+#pragma mark - Popover Presentation Delegate Methods
+
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+    return UIModalPresentationOverFullScreen;
+}
+
+//- (UIViewController *)presentationController:(UIPresentationController *)controller viewControllerForAdaptivePresentationStyle:(UIModalPresentationStyle)style {
+//    
+//}
 
 @end

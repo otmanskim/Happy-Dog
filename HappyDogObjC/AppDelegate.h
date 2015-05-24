@@ -12,6 +12,9 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+- (void)stopListeningForCurrentChannel;
+- (void)updatePushNotificationListenerChannel;
+- (void)sendBarkPushNotification;
 
 @end
 
