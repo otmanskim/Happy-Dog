@@ -12,6 +12,7 @@
 #import "HDHistoryProtocol.h"
 #import "HDSettingsViewController.h"
 #import "HDConstants.h"
+#import "HDAudioUtils.h"
 
 #define kSettingsPopoverHeight 200
 
@@ -100,11 +101,15 @@
 
 - (IBAction)toggleListeningButtonTapped:(id)sender {
     
-    self.listener.micSensitivity = [self convertSliderValueToSensitivity];
+//    self.listener.micSensitivity = [self convertSliderValueToSensitivity];
+    [HDAudioUtils sharedInstance].micSensitivityLevel = [self convertSliderValueToSensitivity];
     
-    if(![self.listener isRecording]) {
+    if(![HDAudioUtils sharedInstance].isRecording) {
         if([[HDSoundsCollector sharedInstance] allSounds].count) {
-            [self.listener beginRecordingAudio];
+//            [self.listener beginRecordingAudio];
+            [HDAudioUtils sharedInstance].delegate = self;
+            [[HDAudioUtils sharedInstance] startRecordingForMetering];
+            
             [self.toggleListeningButton setTitle:@"Stop Listening" forState:UIControlStateNormal];
             [self.myRecordingsButton setEnabled:NO];
             [self.barkHistoryButton setEnabled:NO];
@@ -112,7 +117,10 @@
             [self displayNoSoundsAlert];
         }
     } else {
-        [self.listener stopRecordingAudio];
+//        [self.listener stopRecordingAudio];
+        [[HDAudioUtils sharedInstance] stopRecording];
+        
+         
         [self.toggleListeningButton setTitle:@"Start Listening" forState:UIControlStateNormal];
         [self.myRecordingsButton setEnabled:YES];
         [self.barkHistoryButton setEnabled:YES];
@@ -145,8 +153,9 @@
 }
 
 - (void)sliderValueChanged {
-    self.listener.micSensitivity = [self convertSliderValueToSensitivity];
-    if(self.listener.micSensitivity != [self retrieveSavedSensitivityValue]) {
+    [HDAudioUtils sharedInstance].micSensitivityLevel = [self convertSliderValueToSensitivity];
+//    self.listener.micSensitivity = [self convertSliderValueToSensitivity];
+    if([HDAudioUtils sharedInstance].micSensitivityLevel != [self retrieveSavedSensitivityValue]) {
         [self enableSaveButton];
     }
 }
@@ -182,6 +191,9 @@
     self.todaysBarkCount++;
     self.barkCountLabel.text = [NSString stringWithFormat:@"%ld today", (long)self.todaysBarkCount];
     [self.allBarks addObject:[NSDate date]];
+    
+    HDAudioUtils *audioUtil = [HDAudioUtils sharedInstance];
+    [audioUtil playRandomSavedSound];
 }
 
 - (void)soundStartedPlaying {

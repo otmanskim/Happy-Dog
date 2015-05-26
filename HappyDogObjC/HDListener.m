@@ -80,10 +80,6 @@
     double peakPowerForChannel = pow(10, (0.05 * [self.audioRecorder peakPowerForChannel:0]));
     self.lowPassResults = ALPHA * peakPowerForChannel + (1.0 - ALPHA) * self.lowPassResults;
     
-//    NSLog(@"Average input: %f Peak input: %f", [self.audioRecorder averagePowerForChannel:0], [self.audioRecorder peakPowerForChannel:0]);
-    
-//    NSLog(@"Low Pass Results: %f", self.lowPassResults);
-    
     if(self.lowPassResults > self.micSensitivity) {
         self.lowPassResults = 0;
         [self.delegate barkDetected];

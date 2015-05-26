@@ -8,6 +8,7 @@
 
 #import "HDCreateSoundViewController.h"
 #import "HDSoundsCollector.h"
+#import "HDAudioUtils.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface HDCreateSoundViewController () <UITextFieldDelegate>

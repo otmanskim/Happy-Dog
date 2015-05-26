@@ -15,5 +15,4 @@
 #define kUserDefaultsSensitivityValueKey @"sensitivityValue"
 #define kUserDefaultsBarksHistoryKey @"barksHistoryValue"
 
-
 #endif
