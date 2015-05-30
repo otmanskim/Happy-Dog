@@ -33,7 +33,7 @@
     dispatch_once(&predicate, ^{
         sharedObject = [[HDAudioUtils alloc] init];
         sharedObject.audioSession = [AVAudioSession sharedInstance];
-        sharedObject.audioPlayer = [[AVAudioPlayer alloc] init];
+        sharedObject.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"test"] error:nil];
         sharedObject.audioRecorder = [[AVAudioRecorder alloc] initWithURL:[NSURL URLWithString:@"/dev/null"] settings:nil error:nil];
     });
     
@@ -132,6 +132,7 @@
     
     [utils.audioRecorder prepareToRecord];
     utils.audioRecorder.meteringEnabled = YES;
+    [utils.audioRecorder record];
 
     utils.checkSoundLevelsTimer = [NSTimer scheduledTimerWithTimeInterval: 0.03 target: utils selector: @selector(checkSoundLevels) userInfo: nil repeats: YES];
     
@@ -144,7 +145,7 @@
     
     const double ALPHA = 0.05;
     double peakPowerForChannel = pow(10, (0.05 * [utils.audioRecorder peakPowerForChannel:0]));
-    utils.lowPassResults = ALPHA * peakPowerForChannel + (1.0 - ALPHA) * self.lowPassResults;
+    utils.lowPassResults = ALPHA * peakPowerForChannel + (1.0 - ALPHA) * utils.lowPassResults;
     
     if(utils.lowPassResults > utils.micSensitivityLevel) {
         //bark detected
@@ -181,7 +182,6 @@
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
     HDAudioUtils *utils = [HDAudioUtils sharedInstance];
-
     [utils.delegate soundFinishedPlaying];
 }
 

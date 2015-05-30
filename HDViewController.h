@@ -7,13 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HDListener.h"
 #import "HDListenerProtocol.h"
 
 
-
 @interface HDViewController : UIViewController <HDListenerDelegate>
-
-@property (nonatomic, strong) HDListener *listener;
 
 @end

@@ -13,6 +13,7 @@
 #import "HDSettingsViewController.h"
 #import "HDConstants.h"
 #import "HDAudioUtils.h"
+#import "AppDelegate.h"
 
 #define kSettingsPopoverHeight 200
 
@@ -38,8 +39,6 @@
     self.allBarks = [[NSMutableArray alloc] init];
     self.todaysBarkCount = 0;
     [self fetchOldBarksFromUserDefaults];
-    self.listener = [[HDListener alloc] init];
-    self.listener.delegate = self;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     
@@ -52,7 +51,7 @@
     
     [self.micSensitivitySlider setValue:savedSensitivityValue >= 0 && savedSensitivityValue <= 1 ? savedSensitivityValue : .5];
     
-    self.listener.micSensitivity = self.micSensitivitySlider.value;
+    [HDAudioUtils sharedInstance].micSensitivityLevel = self.micSensitivitySlider.value;
     
     [self.micSensitivitySlider addTarget:self action:@selector(sliderValueChanged) forControlEvents:UIControlEventValueChanged];
     
@@ -101,12 +100,10 @@
 
 - (IBAction)toggleListeningButtonTapped:(id)sender {
     
-//    self.listener.micSensitivity = [self convertSliderValueToSensitivity];
     [HDAudioUtils sharedInstance].micSensitivityLevel = [self convertSliderValueToSensitivity];
     
     if(![HDAudioUtils sharedInstance].isRecording) {
         if([[HDSoundsCollector sharedInstance] allSounds].count) {
-//            [self.listener beginRecordingAudio];
             [HDAudioUtils sharedInstance].delegate = self;
             [[HDAudioUtils sharedInstance] startRecordingForMetering];
             
@@ -117,7 +114,6 @@
             [self displayNoSoundsAlert];
         }
     } else {
-//        [self.listener stopRecordingAudio];
         [[HDAudioUtils sharedInstance] stopRecording];
         
          
@@ -154,7 +150,6 @@
 
 - (void)sliderValueChanged {
     [HDAudioUtils sharedInstance].micSensitivityLevel = [self convertSliderValueToSensitivity];
-//    self.listener.micSensitivity = [self convertSliderValueToSensitivity];
     if([HDAudioUtils sharedInstance].micSensitivityLevel != [self retrieveSavedSensitivityValue]) {
         [self enableSaveButton];
     }
@@ -191,10 +186,20 @@
     self.todaysBarkCount++;
     self.barkCountLabel.text = [NSString stringWithFormat:@"%ld today", (long)self.todaysBarkCount];
     [self.allBarks addObject:[NSDate date]];
+    [self saveBarksInUserDefaults];
     
     HDAudioUtils *audioUtil = [HDAudioUtils sharedInstance];
     [audioUtil playRandomSavedSound];
+    [self sendPushNotification];
 }
+
+- (void)sendPushNotification {
+    //if this device is a listener, send push notification
+    if([[NSUserDefaults standardUserDefaults] boolForKey:kNSUserDefaultsIsListeningDeviceKey]) {
+        [((AppDelegate *)[UIApplication sharedApplication].delegate) sendBarkPushNotification];
+    }
+}
+
 
 - (void)soundStartedPlaying {
     [self.toggleListeningButton setEnabled:NO];
@@ -269,18 +274,10 @@
     [self saveBarksInUserDefaults];
 }
 
-- (IBAction)settingsButtonTapped:(id)sender {
-    
-}
-
 #pragma mark - Popover Presentation Delegate Methods
 
 - (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
     return UIModalPresentationOverFullScreen;
 }
-
-//- (UIViewController *)presentationController:(UIPresentationController *)controller viewControllerForAdaptivePresentationStyle:(UIModalPresentationStyle)style {
-//    
-//}
 
 @end
