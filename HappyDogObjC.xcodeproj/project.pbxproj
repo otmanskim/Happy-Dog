@@ -23,6 +23,7 @@
 		1F4BFBF51AE940AB0088804E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBF41AE940AB0088804E /* libsqlite3.dylib */; };
 		1F4BFBFD1AE948440088804E /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BFBFC1AE948440088804E /* settings.png */; };
 		1F4BFC001AE949E80088804E /* HDSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BFBFF1AE949E80088804E /* HDSettingsViewController.m */; };
+		1F5AC9EC1B13A55100CFCD4E /* HDAudioUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5AC9EB1B13A55100CFCD4E /* HDAudioUtils.m */; };
 		1F74A6CF1AE470B90019A158 /* HDBarkHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F74A6CE1AE470B90019A158 /* HDBarkHistoryViewController.m */; };
 		1FA314671B1231C60014C535 /* play-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FA314661B1231C60014C535 /* play-icon.png */; };
 		1FA3146B1B1231D30014C535 /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FA314691B1231D30014C535 /* microphone.png */; };
@@ -35,7 +36,6 @@
 		1FB050B91ADD7AAC0057CA58 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050B71ADD7AAC0057CA58 /* LaunchScreen.xib */; };
 		1FB050C51ADD7AAC0057CA58 /* HappyDogObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050C41ADD7AAC0057CA58 /* HappyDogObjCTests.m */; };
 		1FB050D01ADD7ACF0057CA58 /* HDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050CF1ADD7ACF0057CA58 /* HDViewController.m */; };
-		1FB050D31ADD7B440057CA58 /* HDListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050D21ADD7B440057CA58 /* HDListener.m */; };
 		1FB050D51ADD7B5D0057CA58 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB050D41ADD7B5D0057CA58 /* AVFoundation.framework */; };
 		1FB050E11ADD91760057CA58 /* HDSoundsCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050E01ADD91760057CA58 /* HDSoundsCollector.m */; };
 		1FB050E41ADD92B60057CA58 /* HDSoundRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050E31ADD92B60057CA58 /* HDSoundRecording.m */; };
@@ -73,6 +73,8 @@
 		1F4BFBFE1AE949E80088804E /* HDSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDSettingsViewController.h; sourceTree = "<group>"; };
 		1F4BFBFF1AE949E80088804E /* HDSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSettingsViewController.m; sourceTree = "<group>"; };
 		1F4BFC011AE95E7E0088804E /* HDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDConstants.h; sourceTree = "<group>"; };
+		1F5AC9EA1B13A55100CFCD4E /* HDAudioUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDAudioUtils.h; sourceTree = "<group>"; };
+		1F5AC9EB1B13A55100CFCD4E /* HDAudioUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDAudioUtils.m; sourceTree = "<group>"; };
 		1F74A6CC1AE46E6B0019A158 /* HDListenerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HDListenerProtocol.h; path = ../HDListenerProtocol.h; sourceTree = "<group>"; };
 		1F74A6CD1AE470B90019A158 /* HDBarkHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDBarkHistoryViewController.h; sourceTree = "<group>"; };
 		1F74A6CE1AE470B90019A158 /* HDBarkHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDBarkHistoryViewController.m; sourceTree = "<group>"; };
@@ -94,8 +96,6 @@
 		1FB050C41ADD7AAC0057CA58 /* HappyDogObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HappyDogObjCTests.m; sourceTree = "<group>"; };
 		1FB050CE1ADD7ACF0057CA58 /* HDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HDViewController.h; path = ../HDViewController.h; sourceTree = "<group>"; };
 		1FB050CF1ADD7ACF0057CA58 /* HDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HDViewController.m; path = ../HDViewController.m; sourceTree = "<group>"; };
-		1FB050D11ADD7B440057CA58 /* HDListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDListener.h; sourceTree = "<group>"; };
-		1FB050D21ADD7B440057CA58 /* HDListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDListener.m; sourceTree = "<group>"; };
 		1FB050D41ADD7B5D0057CA58 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1FB050DF1ADD91760057CA58 /* HDSoundsCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDSoundsCollector.h; sourceTree = "<group>"; };
 		1FB050E01ADD91760057CA58 /* HDSoundsCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSoundsCollector.m; sourceTree = "<group>"; };
@@ -242,8 +242,8 @@
 				1F4BFC011AE95E7E0088804E /* HDConstants.h */,
 				1F74A6CC1AE46E6B0019A158 /* HDListenerProtocol.h */,
 				1FE327611AE691340097CF6C /* HDHistoryProtocol.h */,
-				1FB050D11ADD7B440057CA58 /* HDListener.h */,
-				1FB050D21ADD7B440057CA58 /* HDListener.m */,
+				1F5AC9EA1B13A55100CFCD4E /* HDAudioUtils.h */,
+				1F5AC9EB1B13A55100CFCD4E /* HDAudioUtils.m */,
 				1FB050E21ADD92B60057CA58 /* HDSoundRecording.h */,
 				1FB050E31ADD92B60057CA58 /* HDSoundRecording.m */,
 				1FB050DF1ADD91760057CA58 /* HDSoundsCollector.h */,
@@ -380,12 +380,12 @@
 				1FB050F11ADDA9330057CA58 /* HDCreateSoundViewController.m in Sources */,
 				1FB050D01ADD7ACF0057CA58 /* HDViewController.m in Sources */,
 				1FB050E11ADD91760057CA58 /* HDSoundsCollector.m in Sources */,
-				1FB050D31ADD7B440057CA58 /* HDListener.m in Sources */,
 				1FB050E41ADD92B60057CA58 /* HDSoundRecording.m in Sources */,
 				1F4BFC001AE949E80088804E /* HDSettingsViewController.m in Sources */,
 				1FB050AE1ADD7AAC0057CA58 /* AppDelegate.m in Sources */,
 				1FA314701B1231FD0014C535 /* HDSoundsListTableViewController.m in Sources */,
 				1FB050AB1ADD7AAC0057CA58 /* main.m in Sources */,
+				1F5AC9EC1B13A55100CFCD4E /* HDAudioUtils.m in Sources */,
 				1F74A6CF1AE470B90019A158 /* HDBarkHistoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

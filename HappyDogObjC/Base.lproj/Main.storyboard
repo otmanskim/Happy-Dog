@@ -225,7 +225,6 @@
                         <barButtonItem key="rightBarButtonItem" image="settings.png" id="Osh-2N-zZf" userLabel="Settings Bar Button Item">
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="settingsButtonTapped:" destination="BYZ-38-t0r" id="pSk-Po-7Ac"/>
                                 <segue destination="kAe-TW-d7Z" kind="popoverPresentation" identifier="settingsSegue" popoverAnchorBarButtonItem="Osh-2N-zZf" id="8dq-dD-qLh">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>

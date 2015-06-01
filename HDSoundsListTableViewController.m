@@ -30,6 +30,11 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self fetchSounds];
+}
+
+- (void)fetchSounds {
     self.sounds = [[HDSoundsCollector sharedInstance] allSounds];
     [self.tableView reloadData];
 }
@@ -85,6 +90,16 @@
     self.audioPlayer.delegate = self;
 
     [self.audioPlayer play];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if(editingStyle == UITableViewCellEditingStyleDelete) {
+        HDSoundRecording *soundToRemove = self.sounds[indexPath.row];
+        [[HDSoundsCollector sharedInstance] removeSound:soundToRemove];
+        [self fetchSounds];
+    }
+    
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
