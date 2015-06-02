@@ -10,6 +10,7 @@
 #define HappyDogObjC_HDConstants_h
 
 #define kNSUserDefaultsDogNameKey @"kUserDefaultsDogName"
+#define kNSUserDefaultsEmailKey @"kUserDefaultsEmail"
 #define kNSUserDefaultsIsListeningDeviceKey @"kUserDefaultsIsListeningDevice"
 #define kNSUserDefaultsSavedSoundsKey @"savedSounds"
 #define kUserDefaultsSensitivityValueKey @"sensitivityValue"

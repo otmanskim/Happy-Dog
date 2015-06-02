@@ -12,5 +12,6 @@
 
 @property (nonatomic, assign) BOOL isListenerDevice;
 @property (nonatomic, strong) NSString *nameString;
+@property (nonatomic, strong) NSString *emailString;
 
 @end
