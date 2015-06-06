@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F32D8071B236EFF000AC07D /* Eros_Splash.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1F32D8061B236EFF000AC07D /* Eros_Splash.JPG */; };
 		1F4BFBDB1AE936970088804E /* HappyDog_Development.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BFBDA1AE936970088804E /* HappyDog_Development.mobileprovision */; };
 		1F4BFBDE1AE9401F0088804E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBDC1AE9401F0088804E /* Bolts.framework */; };
 		1F4BFBDF1AE9401F0088804E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBDD1AE9401F0088804E /* Parse.framework */; };
@@ -26,13 +27,11 @@
 		1F74A6CF1AE470B90019A158 /* HDBarkHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F74A6CE1AE470B90019A158 /* HDBarkHistoryViewController.m */; };
 		1FA314671B1231C60014C535 /* play-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FA314661B1231C60014C535 /* play-icon.png */; };
 		1FA3146B1B1231D30014C535 /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FA314691B1231D30014C535 /* microphone.png */; };
-		1FA3146D1B1231DF0014C535 /* stop-barking-dog1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FA3146C1B1231DF0014C535 /* stop-barking-dog1.jpg */; };
 		1FA314701B1231FD0014C535 /* HDSoundsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA3146F1B1231FD0014C535 /* HDSoundsListTableViewController.m */; };
 		1FB050AB1ADD7AAC0057CA58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050AA1ADD7AAC0057CA58 /* main.m */; };
 		1FB050AE1ADD7AAC0057CA58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050AD1ADD7AAC0057CA58 /* AppDelegate.m */; };
 		1FB050B41ADD7AAC0057CA58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050B21ADD7AAC0057CA58 /* Main.storyboard */; };
 		1FB050B61ADD7AAC0057CA58 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050B51ADD7AAC0057CA58 /* Images.xcassets */; };
-		1FB050B91ADD7AAC0057CA58 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050B71ADD7AAC0057CA58 /* LaunchScreen.xib */; };
 		1FB050C51ADD7AAC0057CA58 /* HappyDogObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050C41ADD7AAC0057CA58 /* HappyDogObjCTests.m */; };
 		1FB050D01ADD7ACF0057CA58 /* HDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050CF1ADD7ACF0057CA58 /* HDViewController.m */; };
 		1FB050D51ADD7B5D0057CA58 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB050D41ADD7B5D0057CA58 /* AVFoundation.framework */; };
@@ -40,7 +39,6 @@
 		1FB050E41ADD92B60057CA58 /* HDSoundRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050E31ADD92B60057CA58 /* HDSoundRecording.m */; };
 		1FB050F11ADDA9330057CA58 /* HDCreateSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050F01ADDA9330057CA58 /* HDCreateSoundViewController.m */; };
 		1FB050F91ADDADB80057CA58 /* microphone-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050F81ADDADB80057CA58 /* microphone-red.png */; };
-		1FE327601AE5F4B80097CF6C /* baby-eros.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FE3275F1AE5F4B80097CF6C /* baby-eros.png */; };
 		1FF829A41B1D34F3002628CA /* aps_development.cer in Resources */ = {isa = PBXBuildFile; fileRef = 1FF829A31B1D34F3002628CA /* aps_development.cer */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F32D8061B236EFF000AC07D /* Eros_Splash.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Eros_Splash.JPG; sourceTree = "<group>"; };
 		1F4BFBDA1AE936970088804E /* HappyDog_Development.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = HappyDog_Development.mobileprovision; sourceTree = "<group>"; };
 		1F4BFBDC1AE9401F0088804E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		1F4BFBDD1AE9401F0088804E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -79,7 +78,6 @@
 		1F74A6CE1AE470B90019A158 /* HDBarkHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDBarkHistoryViewController.m; sourceTree = "<group>"; };
 		1FA314661B1231C60014C535 /* play-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-icon.png"; sourceTree = "<group>"; };
 		1FA314691B1231D30014C535 /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone.png; sourceTree = "<group>"; };
-		1FA3146C1B1231DF0014C535 /* stop-barking-dog1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "stop-barking-dog1.jpg"; sourceTree = "<group>"; };
 		1FA3146E1B1231FD0014C535 /* HDSoundsListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HDSoundsListTableViewController.h; path = ../HDSoundsListTableViewController.h; sourceTree = "<group>"; };
 		1FA3146F1B1231FD0014C535 /* HDSoundsListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HDSoundsListTableViewController.m; path = ../HDSoundsListTableViewController.m; sourceTree = "<group>"; };
 		1FB050A51ADD7AAC0057CA58 /* HappyDogObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyDogObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,7 +87,6 @@
 		1FB050AD1ADD7AAC0057CA58 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1FB050B31ADD7AAC0057CA58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1FB050B51ADD7AAC0057CA58 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1FB050B81ADD7AAC0057CA58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1FB050BE1ADD7AAC0057CA58 /* HappyDogObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HappyDogObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FB050C31ADD7AAC0057CA58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FB050C41ADD7AAC0057CA58 /* HappyDogObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HappyDogObjCTests.m; sourceTree = "<group>"; };
@@ -103,7 +100,6 @@
 		1FB050EF1ADDA9330057CA58 /* HDCreateSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDCreateSoundViewController.h; sourceTree = "<group>"; };
 		1FB050F01ADDA9330057CA58 /* HDCreateSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDCreateSoundViewController.m; sourceTree = "<group>"; };
 		1FB050F81ADDADB80057CA58 /* microphone-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-red.png"; sourceTree = "<group>"; };
-		1FE3275F1AE5F4B80097CF6C /* baby-eros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "baby-eros.png"; sourceTree = "<group>"; };
 		1FE327611AE691340097CF6C /* HDHistoryProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDHistoryProtocol.h; sourceTree = "<group>"; };
 		1FF829A31B1D34F3002628CA /* aps_development.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = aps_development.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,11 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				1F4BFBFC1AE948440088804E /* settings.png */,
-				1FE3275F1AE5F4B80097CF6C /* baby-eros.png */,
 				1FA314661B1231C60014C535 /* play-icon.png */,
 				1FA314691B1231D30014C535 /* microphone.png */,
 				1FB050F81ADDADB80057CA58 /* microphone-red.png */,
-				1FA3146C1B1231DF0014C535 /* stop-barking-dog1.jpg */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -200,7 +194,6 @@
 				1FB050E61ADD93170057CA58 /* View Controllers */,
 				1FB050E51ADD92F10057CA58 /* Models */,
 				1FB050B51ADD7AAC0057CA58 /* Images.xcassets */,
-				1FB050B71ADD7AAC0057CA58 /* LaunchScreen.xib */,
 				1FB050A81ADD7AAC0057CA58 /* Supporting Files */,
 			);
 			path = HappyDogObjC;
@@ -209,6 +202,7 @@
 		1FB050A81ADD7AAC0057CA58 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1F32D8061B236EFF000AC07D /* Eros_Splash.JPG */,
 				1FF829A31B1D34F3002628CA /* aps_development.cer */,
 				1F4BFBDA1AE936970088804E /* HappyDog_Development.mobileprovision */,
 				1FB050A91ADD7AAC0057CA58 /* Info.plist */,
@@ -357,14 +351,12 @@
 				1FA3146B1B1231D30014C535 /* microphone.png in Resources */,
 				1FB050B41ADD7AAC0057CA58 /* Main.storyboard in Resources */,
 				1FB050F91ADDADB80057CA58 /* microphone-red.png in Resources */,
+				1F32D8071B236EFF000AC07D /* Eros_Splash.JPG in Resources */,
 				1F4BFBDB1AE936970088804E /* HappyDog_Development.mobileprovision in Resources */,
-				1FE327601AE5F4B80097CF6C /* baby-eros.png in Resources */,
 				1F4BFBFD1AE948440088804E /* settings.png in Resources */,
-				1FB050B91ADD7AAC0057CA58 /* LaunchScreen.xib in Resources */,
 				1FA314671B1231C60014C535 /* play-icon.png in Resources */,
 				1FB050B61ADD7AAC0057CA58 /* Images.xcassets in Resources */,
 				1FF829A41B1D34F3002628CA /* aps_development.cer in Resources */,
-				1FA3146D1B1231DF0014C535 /* stop-barking-dog1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,14 +412,6 @@
 				1FB050B31ADD7AAC0057CA58 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		1FB050B71ADD7AAC0057CA58 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1FB050B81ADD7AAC0057CA58 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -521,8 +505,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -538,8 +523,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
