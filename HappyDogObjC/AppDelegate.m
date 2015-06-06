@@ -80,15 +80,8 @@
 }
 
 - (void)sendBarkPushNotification {
-    NSString *dogName = [[NSUserDefaults standardUserDefaults] objectForKey:kNSUserDefaultsDogNameKey];
-    
-    if(dogName.length == 0) {
-        dogName = @"Default_Name";
-    }
-    
-    NSString *channelString = [NSString stringWithFormat:@"%@_Bark",dogName];
-    
-    NSString *messageString = [NSString stringWithFormat:@"A bark was just detected from %@!", dogName];
+    NSString *channelString = [self channelName];
+    NSString *messageString = [NSString stringWithFormat:@"A bark was just detected from %@!", [[NSUserDefaults standardUserDefaults] objectForKey:kNSUserDefaultsDogNameKey]];
     
     PFPush *push = [[PFPush alloc] init];
     [push setChannel:channelString];
@@ -99,7 +92,22 @@
 - (NSString *)channelName {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *dogName = [defaults objectForKey:kNSUserDefaultsDogNameKey];
-    NSString *channelName = [NSString stringWithFormat:@"%@_Bark",dogName];
+    NSString *email = [defaults objectForKey:kNSUserDefaultsEmailKey];
+    NSString *nameFromEmail = @"";
+    
+    if(email.length) {
+        nameFromEmail = [email substringToIndex:[email rangeOfString:@"@"].location];
+    }
+    
+    if(dogName.length == 0) {
+        dogName = @"Default_Name";
+    }
+    
+    if(nameFromEmail.length == 0) {
+        nameFromEmail = @"Default_Email";
+    }
+    
+    NSString *channelName = [NSString stringWithFormat:@"%@_%@_Bark",nameFromEmail,dogName];
     
     return channelName;
 }

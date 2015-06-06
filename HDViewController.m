@@ -15,7 +15,7 @@
 #import "HDAudioUtils.h"
 #import "AppDelegate.h"
 
-#define kSettingsPopoverHeight 200
+#define kSettingsPopoverHeight 300
 
 @interface HDViewController() <HDHistoryProtocol, UIPopoverPresentationControllerDelegate>
 
@@ -207,6 +207,7 @@
 
 - (void)soundFinishedPlaying {
     [self.toggleListeningButton setEnabled:YES];
+    [[HDAudioUtils sharedInstance] startRecordingForMetering];
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
@@ -231,11 +232,13 @@
         //get values to populate saved settings
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *dogName = [defaults objectForKey:kNSUserDefaultsDogNameKey];
+        NSString *email = [defaults objectForKey:kNSUserDefaultsEmailKey];
         BOOL isListenerDevice = [defaults boolForKey:kNSUserDefaultsIsListeningDeviceKey];
         
         UINavigationController *navCon = (UINavigationController *)segue.destinationViewController;
         HDSettingsViewController *settingsVC = (HDSettingsViewController *)navCon.visibleViewController;
         settingsVC.nameString = dogName;
+        settingsVC.emailString = email;
         settingsVC.isListenerDevice = isListenerDevice;
         
         UIPopoverPresentationController *ppc = settingsVC.popoverPresentationController;

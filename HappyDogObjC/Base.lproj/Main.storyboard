@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qCf-j9-rZI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qCf-j9-rZI">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is this going to be the listening device?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="GKP-c6-QaK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is this going to be the listening device?" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="GKP-c6-QaK">
                                 <rect key="frame" x="16" y="85" width="511" height="20"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -32,10 +32,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqw-gg-JdB">
-                                <rect key="frame" x="16" y="113" width="564" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqw-gg-JdB">
+                                <rect key="frame" x="16" y="113" width="568" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="564" id="EmB-ph-cK6"/>
+                                    <constraint firstAttribute="width" constant="379" id="MQr-92-34I"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="568" id="OIP-p4-1Nq"/>
+                                    <constraint firstAttribute="width" constant="568" id="bjb-yZ-Q3f"/>
                                 </constraints>
                                 <string key="text">Non-listening devices will receive push notifications when barking is detected on the listening device. Listening devices will send push notifications to non-listening devices.</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -44,6 +47,9 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="EmB-ph-cK6"/>
+                                        <exclude reference="MQr-92-34I"/>
+                                        <exclude reference="OIP-p4-1Nq"/>
+                                        <exclude reference="bjb-yZ-Q3f"/>
                                     </mask>
                                 </variation>
                             </label>
@@ -67,38 +73,92 @@
                                     </mask>
                                 </variation>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your email address?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="vwD-Bu-Rg7">
+                                <rect key="frame" x="16" y="303" width="405" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gW-0c-OLy">
+                                <rect key="frame" x="16" y="331" width="568" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="568" id="3Da-5u-CYm"/>
+                                    <constraint firstAttribute="width" constant="379" id="F8i-X6-uEu"/>
+                                    <constraint firstAttribute="width" constant="568" id="efY-tG-uyW"/>
+                                </constraints>
+                                <string key="text">Enter the same email address on all devices to enable push notifications from the listening device to the non-listening devices.</string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="F8i-X6-uEu"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JG9-EH-haY">
+                                <rect key="frame" x="429" y="298" width="151" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="pnL-vm-Zfc" firstAttribute="leading" secondItem="GKP-c6-QaK" secondAttribute="trailing" constant="114" id="0tk-RN-eVi"/>
                             <constraint firstItem="pnL-vm-Zfc" firstAttribute="centerX" secondItem="7OP-wh-4UT" secondAttribute="centerX" id="1wv-Tr-Mpd"/>
                             <constraint firstItem="7OP-wh-4UT" firstAttribute="centerY" secondItem="qmt-9Y-r3E" secondAttribute="centerY" constant="5" id="5bE-1u-sAJ"/>
+                            <constraint firstItem="cqw-gg-JdB" firstAttribute="top" secondItem="pnL-vm-Zfc" secondAttribute="bottom" constant="3" id="6bz-Pb-Ycx"/>
                             <constraint firstItem="7OP-wh-4UT" firstAttribute="trailing" secondItem="Nj9-Qe-qIh" secondAttribute="trailing" id="6yc-Pf-wAV"/>
                             <constraint firstItem="GKP-c6-QaK" firstAttribute="leading" secondItem="qmt-9Y-r3E" secondAttribute="leading" id="AkI-EE-q3v"/>
+                            <constraint firstItem="pnL-vm-Zfc" firstAttribute="trailing" secondItem="cqw-gg-JdB" secondAttribute="trailing" id="BTw-iX-Aib"/>
                             <constraint firstItem="qmt-9Y-r3E" firstAttribute="leading" secondItem="Nj9-Qe-qIh" secondAttribute="leading" id="CZx-NE-NvA"/>
                             <constraint firstItem="pnL-vm-Zfc" firstAttribute="trailing" secondItem="cqw-gg-JdB" secondAttribute="trailing" constant="4" id="Eub-mE-KbC"/>
+                            <constraint firstItem="6gW-0c-OLy" firstAttribute="top" secondItem="vwD-Bu-Rg7" secondAttribute="bottom" constant="8" id="FxR-3Q-fRi"/>
                             <constraint firstItem="pnL-vm-Zfc" firstAttribute="centerY" secondItem="GKP-c6-QaK" secondAttribute="centerY" id="Gs1-b2-6fI"/>
                             <constraint firstItem="GKP-c6-QaK" firstAttribute="leading" secondItem="37C-xn-9Uv" secondAttribute="leadingMargin" id="Ios-FX-Uwa"/>
                             <constraint firstItem="GKP-c6-QaK" firstAttribute="leading" secondItem="cqw-gg-JdB" secondAttribute="leading" id="OgY-t8-l1Z"/>
                             <constraint firstItem="GKP-c6-QaK" firstAttribute="top" secondItem="phM-0y-oCt" secondAttribute="bottom" constant="21" id="QIc-ou-dyZ"/>
                             <constraint firstItem="GKP-c6-QaK" firstAttribute="centerX" secondItem="qmt-9Y-r3E" secondAttribute="centerX" constant="44.5" id="RBc-R8-skI"/>
+                            <constraint firstItem="6gW-0c-OLy" firstAttribute="trailing" secondItem="JG9-EH-haY" secondAttribute="trailing" constant="4" id="Tdc-Bi-CTS"/>
                             <constraint firstItem="7OP-wh-4UT" firstAttribute="centerY" secondItem="qmt-9Y-r3E" secondAttribute="centerY" id="Urj-FY-UK0"/>
                             <constraint firstItem="pnL-vm-Zfc" firstAttribute="trailing" secondItem="37C-xn-9Uv" secondAttribute="trailingMargin" id="UyX-G0-MQF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JG9-EH-haY" secondAttribute="trailing" constant="4" id="WmR-bg-khc"/>
+                            <constraint firstItem="qmt-9Y-r3E" firstAttribute="top" secondItem="cqw-gg-JdB" secondAttribute="bottom" constant="53" id="XVL-o2-bFZ"/>
+                            <constraint firstItem="pnL-vm-Zfc" firstAttribute="trailing" secondItem="cqw-gg-JdB" secondAttribute="trailing" id="ZDY-rf-Dgt"/>
+                            <constraint firstItem="pnL-vm-Zfc" firstAttribute="leading" secondItem="GKP-c6-QaK" secondAttribute="trailing" constant="8" id="ZYj-bm-neY"/>
                             <constraint firstItem="pnL-vm-Zfc" firstAttribute="leading" secondItem="GKP-c6-QaK" secondAttribute="trailing" constant="55" id="efD-eG-hQ0"/>
                             <constraint firstItem="pnL-vm-Zfc" firstAttribute="leading" secondItem="GKP-c6-QaK" secondAttribute="trailing" constant="8" symbolic="YES" id="en0-bi-0bW"/>
                             <constraint firstItem="pnL-vm-Zfc" firstAttribute="centerY" secondItem="GKP-c6-QaK" secondAttribute="centerY" id="gLi-Ua-Tmg"/>
+                            <constraint firstItem="pnL-vm-Zfc" firstAttribute="leading" secondItem="GKP-c6-QaK" secondAttribute="trailing" constant="8" id="hhT-d5-gqY"/>
+                            <constraint firstItem="JG9-EH-haY" firstAttribute="leading" secondItem="vwD-Bu-Rg7" secondAttribute="trailing" priority="747" constant="203" id="hx9-99-pft"/>
+                            <constraint firstItem="7OP-wh-4UT" firstAttribute="centerX" secondItem="JG9-EH-haY" secondAttribute="centerX" constant="2" id="joo-fg-a8U"/>
+                            <constraint firstItem="pnL-vm-Zfc" firstAttribute="leading" secondItem="GKP-c6-QaK" secondAttribute="trailing" constant="229" id="jzn-BM-5qm"/>
+                            <constraint firstItem="vwD-Bu-Rg7" firstAttribute="centerY" secondItem="JG9-EH-haY" secondAttribute="centerY" id="kJA-0T-3QY"/>
                             <constraint firstItem="cqw-gg-JdB" firstAttribute="top" secondItem="GKP-c6-QaK" secondAttribute="bottom" constant="8" id="kg2-ho-x6w"/>
+                            <constraint firstItem="6gW-0c-OLy" firstAttribute="leading" secondItem="37C-xn-9Uv" secondAttribute="leadingMargin" id="klb-ze-J1M"/>
                             <constraint firstItem="7OP-wh-4UT" firstAttribute="leading" secondItem="qmt-9Y-r3E" secondAttribute="trailing" constant="8" symbolic="YES" id="lSd-6S-Cje"/>
+                            <constraint firstItem="vwD-Bu-Rg7" firstAttribute="leading" secondItem="37C-xn-9Uv" secondAttribute="leadingMargin" id="la4-9u-4aB"/>
+                            <constraint firstItem="JG9-EH-haY" firstAttribute="leading" secondItem="vwD-Bu-Rg7" secondAttribute="trailing" constant="8" id="mgN-wP-ZRA"/>
                             <constraint firstItem="Nj9-Qe-qIh" firstAttribute="top" secondItem="qmt-9Y-r3E" secondAttribute="bottom" constant="8" id="r2W-lR-QYl"/>
+                            <constraint firstItem="vwD-Bu-Rg7" firstAttribute="top" secondItem="Nj9-Qe-qIh" secondAttribute="bottom" constant="64" id="t1t-7T-eib"/>
                             <constraint firstItem="pnL-vm-Zfc" firstAttribute="trailing" secondItem="7OP-wh-4UT" secondAttribute="trailing" id="uHl-Cu-GgP"/>
                             <constraint firstItem="qmt-9Y-r3E" firstAttribute="top" secondItem="GKP-c6-QaK" secondAttribute="bottom" constant="92" id="zky-KL-k3u"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="RBc-R8-skI"/>
+                                <exclude reference="zky-KL-k3u"/>
                                 <exclude reference="5bE-1u-sAJ"/>
+                                <exclude reference="hx9-99-pft"/>
+                                <exclude reference="0tk-RN-eVi"/>
                                 <exclude reference="1wv-Tr-Mpd"/>
+                                <exclude reference="BTw-iX-Aib"/>
+                                <exclude reference="Eub-mE-KbC"/>
                                 <exclude reference="Gs1-b2-6fI"/>
                                 <exclude reference="efD-eG-hQ0"/>
+                                <exclude reference="en0-bi-0bW"/>
+                                <exclude reference="hhT-d5-gqY"/>
+                                <exclude reference="jzn-BM-5qm"/>
                             </mask>
                         </variation>
                     </view>
@@ -116,6 +176,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dogNameTextField" destination="7OP-wh-4UT" id="Agu-ZF-BXR"/>
+                        <outlet property="emailTextField" destination="JG9-EH-haY" id="Qey-Zz-1W1"/>
                         <outlet property="isListeningDeviceSwitch" destination="pnL-vm-Zfc" id="HC8-lB-lcq"/>
                     </connections>
                 </viewController>

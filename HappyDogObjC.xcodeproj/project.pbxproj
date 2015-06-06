@@ -17,7 +17,6 @@
 		1F4BFBE91AE9406E0088804E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBE81AE9406E0088804E /* MobileCoreServices.framework */; };
 		1F4BFBEB1AE940750088804E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBEA1AE940750088804E /* QuartzCore.framework */; };
 		1F4BFBED1AE940810088804E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBEC1AE940810088804E /* Security.framework */; };
-		1F4BFBEF1AE9408A0088804E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBEE1AE9408A0088804E /* StoreKit.framework */; };
 		1F4BFBF11AE940930088804E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBF01AE940930088804E /* SystemConfiguration.framework */; };
 		1F4BFBF31AE9409E0088804E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBF21AE9409E0088804E /* libz.dylib */; };
 		1F4BFBF51AE940AB0088804E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBF41AE940AB0088804E /* libsqlite3.dylib */; };
@@ -42,6 +41,7 @@
 		1FB050F11ADDA9330057CA58 /* HDCreateSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050F01ADDA9330057CA58 /* HDCreateSoundViewController.m */; };
 		1FB050F91ADDADB80057CA58 /* microphone-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050F81ADDADB80057CA58 /* microphone-red.png */; };
 		1FE327601AE5F4B80097CF6C /* baby-eros.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FE3275F1AE5F4B80097CF6C /* baby-eros.png */; };
+		1FF829A41B1D34F3002628CA /* aps_development.cer in Resources */ = {isa = PBXBuildFile; fileRef = 1FF829A31B1D34F3002628CA /* aps_development.cer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +65,6 @@
 		1F4BFBE81AE9406E0088804E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		1F4BFBEA1AE940750088804E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1F4BFBEC1AE940810088804E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		1F4BFBEE1AE9408A0088804E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		1F4BFBF01AE940930088804E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1F4BFBF21AE9409E0088804E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		1F4BFBF41AE940AB0088804E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -106,6 +105,7 @@
 		1FB050F81ADDADB80057CA58 /* microphone-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-red.png"; sourceTree = "<group>"; };
 		1FE3275F1AE5F4B80097CF6C /* baby-eros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "baby-eros.png"; sourceTree = "<group>"; };
 		1FE327611AE691340097CF6C /* HDHistoryProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDHistoryProtocol.h; sourceTree = "<group>"; };
+		1FF829A31B1D34F3002628CA /* aps_development.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = aps_development.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +116,6 @@
 				1F4BFBF51AE940AB0088804E /* libsqlite3.dylib in Frameworks */,
 				1F4BFBF31AE9409E0088804E /* libz.dylib in Frameworks */,
 				1F4BFBF11AE940930088804E /* SystemConfiguration.framework in Frameworks */,
-				1F4BFBEF1AE9408A0088804E /* StoreKit.framework in Frameworks */,
 				1F4BFBED1AE940810088804E /* Security.framework in Frameworks */,
 				1F4BFBEB1AE940750088804E /* QuartzCore.framework in Frameworks */,
 				1F4BFBE91AE9406E0088804E /* MobileCoreServices.framework in Frameworks */,
@@ -149,7 +148,6 @@
 				1F4BFBF41AE940AB0088804E /* libsqlite3.dylib */,
 				1F4BFBF21AE9409E0088804E /* libz.dylib */,
 				1F4BFBF01AE940930088804E /* SystemConfiguration.framework */,
-				1F4BFBEE1AE9408A0088804E /* StoreKit.framework */,
 				1F4BFBEC1AE940810088804E /* Security.framework */,
 				1F4BFBEA1AE940750088804E /* QuartzCore.framework */,
 				1F4BFBE81AE9406E0088804E /* MobileCoreServices.framework */,
@@ -211,6 +209,7 @@
 		1FB050A81ADD7AAC0057CA58 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1FF829A31B1D34F3002628CA /* aps_development.cer */,
 				1F4BFBDA1AE936970088804E /* HappyDog_Development.mobileprovision */,
 				1FB050A91ADD7AAC0057CA58 /* Info.plist */,
 				1FB050AA1ADD7AAC0057CA58 /* main.m */,
@@ -319,6 +318,11 @@
 					1FB050A41ADD7AAC0057CA58 = {
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = UN2446H3FP;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					1FB050BD1ADD7AAC0057CA58 = {
 						CreatedOnToolsVersion = 6.3;
@@ -359,6 +363,7 @@
 				1FB050B91ADD7AAC0057CA58 /* LaunchScreen.xib in Resources */,
 				1FA314671B1231C60014C535 /* play-icon.png in Resources */,
 				1FB050B61ADD7AAC0057CA58 /* Images.xcassets in Resources */,
+				1FF829A41B1D34F3002628CA /* aps_development.cer in Resources */,
 				1FA3146D1B1231DF0014C535 /* stop-barking-dog1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,7 +496,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -516,8 +521,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -525,7 +530,7 @@
 				INFOPLIST_FILE = HappyDogObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7829597d-6b6b-4550-a11b-5db19632a5d8";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -533,8 +538,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -542,7 +547,7 @@
 				INFOPLIST_FILE = HappyDogObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7829597d-6b6b-4550-a11b-5db19632a5d8";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
