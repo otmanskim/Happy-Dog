@@ -7,18 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F32D8071B236EFF000AC07D /* Eros_Splash.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1F32D8061B236EFF000AC07D /* Eros_Splash.JPG */; };
+		1F4BFBDB1AE936970088804E /* HappyDog_Development.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BFBDA1AE936970088804E /* HappyDog_Development.mobileprovision */; };
+		1F4BFBDE1AE9401F0088804E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBDC1AE9401F0088804E /* Bolts.framework */; };
+		1F4BFBDF1AE9401F0088804E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBDD1AE9401F0088804E /* Parse.framework */; };
+		1F4BFBE11AE940540088804E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBE01AE940540088804E /* AudioToolbox.framework */; };
+		1F4BFBE31AE9405B0088804E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBE21AE9405B0088804E /* CFNetwork.framework */; };
+		1F4BFBE51AE940610088804E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBE41AE940610088804E /* CoreGraphics.framework */; };
+		1F4BFBE71AE940670088804E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBE61AE940670088804E /* CoreLocation.framework */; };
+		1F4BFBE91AE9406E0088804E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBE81AE9406E0088804E /* MobileCoreServices.framework */; };
+		1F4BFBEB1AE940750088804E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBEA1AE940750088804E /* QuartzCore.framework */; };
+		1F4BFBED1AE940810088804E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBEC1AE940810088804E /* Security.framework */; };
+		1F4BFBF11AE940930088804E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBF01AE940930088804E /* SystemConfiguration.framework */; };
+		1F4BFBF31AE9409E0088804E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBF21AE9409E0088804E /* libz.dylib */; };
+		1F4BFBF51AE940AB0088804E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BFBF41AE940AB0088804E /* libsqlite3.dylib */; };
+		1F4BFBFD1AE948440088804E /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BFBFC1AE948440088804E /* settings.png */; };
+		1F4BFC001AE949E80088804E /* HDSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BFBFF1AE949E80088804E /* HDSettingsViewController.m */; };
+		1F5AC9EC1B13A55100CFCD4E /* HDAudioUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5AC9EB1B13A55100CFCD4E /* HDAudioUtils.m */; };
+		1F74A6CF1AE470B90019A158 /* HDBarkHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F74A6CE1AE470B90019A158 /* HDBarkHistoryViewController.m */; };
+		1FA314671B1231C60014C535 /* play-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FA314661B1231C60014C535 /* play-icon.png */; };
+		1FA3146B1B1231D30014C535 /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FA314691B1231D30014C535 /* microphone.png */; };
+		1FA314701B1231FD0014C535 /* HDSoundsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA3146F1B1231FD0014C535 /* HDSoundsListTableViewController.m */; };
 		1FB050AB1ADD7AAC0057CA58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050AA1ADD7AAC0057CA58 /* main.m */; };
 		1FB050AE1ADD7AAC0057CA58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050AD1ADD7AAC0057CA58 /* AppDelegate.m */; };
 		1FB050B41ADD7AAC0057CA58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050B21ADD7AAC0057CA58 /* Main.storyboard */; };
 		1FB050B61ADD7AAC0057CA58 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050B51ADD7AAC0057CA58 /* Images.xcassets */; };
-		1FB050B91ADD7AAC0057CA58 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050B71ADD7AAC0057CA58 /* LaunchScreen.xib */; };
 		1FB050C51ADD7AAC0057CA58 /* HappyDogObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050C41ADD7AAC0057CA58 /* HappyDogObjCTests.m */; };
 		1FB050D01ADD7ACF0057CA58 /* HDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050CF1ADD7ACF0057CA58 /* HDViewController.m */; };
-		1FB050D31ADD7B440057CA58 /* HDListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050D21ADD7B440057CA58 /* HDListener.m */; };
 		1FB050D51ADD7B5D0057CA58 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB050D41ADD7B5D0057CA58 /* AVFoundation.framework */; };
-		1FB050D71ADD81280057CA58 /* raygun-01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050D61ADD81280057CA58 /* raygun-01.wav */; };
-		1FB050DA1ADD83B20057CA58 /* pencil_scribble_out_on_paper.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050D81ADD83B20057CA58 /* pencil_scribble_out_on_paper.mp3 */; };
-		1FB050DB1ADD83B20057CA58 /* small_address_book_page_turn_twice.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050D91ADD83B20057CA58 /* small_address_book_page_turn_twice.mp3 */; };
+		1FB050E11ADD91760057CA58 /* HDSoundsCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050E01ADD91760057CA58 /* HDSoundsCollector.m */; };
+		1FB050E41ADD92B60057CA58 /* HDSoundRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050E31ADD92B60057CA58 /* HDSoundRecording.m */; };
+		1FB050F11ADDA9330057CA58 /* HDCreateSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050F01ADDA9330057CA58 /* HDCreateSoundViewController.m */; };
+		1FB050F91ADDADB80057CA58 /* microphone-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050F81ADDADB80057CA58 /* microphone-red.png */; };
+		1FF829A41B1D34F3002628CA /* aps_development.cer in Resources */ = {isa = PBXBuildFile; fileRef = 1FF829A31B1D34F3002628CA /* aps_development.cer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +53,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F32D8061B236EFF000AC07D /* Eros_Splash.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Eros_Splash.JPG; sourceTree = "<group>"; };
+		1F4BFBDA1AE936970088804E /* HappyDog_Development.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = HappyDog_Development.mobileprovision; sourceTree = "<group>"; };
+		1F4BFBDC1AE9401F0088804E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		1F4BFBDD1AE9401F0088804E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		1F4BFBE01AE940540088804E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		1F4BFBE21AE9405B0088804E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		1F4BFBE41AE940610088804E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1F4BFBE61AE940670088804E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1F4BFBE81AE9406E0088804E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		1F4BFBEA1AE940750088804E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1F4BFBEC1AE940810088804E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1F4BFBF01AE940930088804E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1F4BFBF21AE9409E0088804E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		1F4BFBF41AE940AB0088804E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		1F4BFBFC1AE948440088804E /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		1F4BFBFE1AE949E80088804E /* HDSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDSettingsViewController.h; sourceTree = "<group>"; };
+		1F4BFBFF1AE949E80088804E /* HDSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSettingsViewController.m; sourceTree = "<group>"; };
+		1F4BFC011AE95E7E0088804E /* HDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDConstants.h; sourceTree = "<group>"; };
+		1F5AC9EA1B13A55100CFCD4E /* HDAudioUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDAudioUtils.h; sourceTree = "<group>"; };
+		1F5AC9EB1B13A55100CFCD4E /* HDAudioUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDAudioUtils.m; sourceTree = "<group>"; };
+		1F74A6CC1AE46E6B0019A158 /* HDListenerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HDListenerProtocol.h; path = ../HDListenerProtocol.h; sourceTree = "<group>"; };
+		1F74A6CD1AE470B90019A158 /* HDBarkHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDBarkHistoryViewController.h; sourceTree = "<group>"; };
+		1F74A6CE1AE470B90019A158 /* HDBarkHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDBarkHistoryViewController.m; sourceTree = "<group>"; };
+		1FA314661B1231C60014C535 /* play-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-icon.png"; sourceTree = "<group>"; };
+		1FA314691B1231D30014C535 /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone.png; sourceTree = "<group>"; };
+		1FA3146E1B1231FD0014C535 /* HDSoundsListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HDSoundsListTableViewController.h; path = ../HDSoundsListTableViewController.h; sourceTree = "<group>"; };
+		1FA3146F1B1231FD0014C535 /* HDSoundsListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HDSoundsListTableViewController.m; path = ../HDSoundsListTableViewController.m; sourceTree = "<group>"; };
 		1FB050A51ADD7AAC0057CA58 /* HappyDogObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyDogObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FB050A91ADD7AAC0057CA58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FB050AA1ADD7AAC0057CA58 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -39,18 +87,21 @@
 		1FB050AD1ADD7AAC0057CA58 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1FB050B31ADD7AAC0057CA58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1FB050B51ADD7AAC0057CA58 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1FB050B81ADD7AAC0057CA58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1FB050BE1ADD7AAC0057CA58 /* HappyDogObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HappyDogObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FB050C31ADD7AAC0057CA58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FB050C41ADD7AAC0057CA58 /* HappyDogObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HappyDogObjCTests.m; sourceTree = "<group>"; };
 		1FB050CE1ADD7ACF0057CA58 /* HDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HDViewController.h; path = ../HDViewController.h; sourceTree = "<group>"; };
 		1FB050CF1ADD7ACF0057CA58 /* HDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HDViewController.m; path = ../HDViewController.m; sourceTree = "<group>"; };
-		1FB050D11ADD7B440057CA58 /* HDListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDListener.h; sourceTree = "<group>"; };
-		1FB050D21ADD7B440057CA58 /* HDListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDListener.m; sourceTree = "<group>"; };
 		1FB050D41ADD7B5D0057CA58 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		1FB050D61ADD81280057CA58 /* raygun-01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "raygun-01.wav"; sourceTree = "<group>"; };
-		1FB050D81ADD83B20057CA58 /* pencil_scribble_out_on_paper.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pencil_scribble_out_on_paper.mp3; sourceTree = "<group>"; };
-		1FB050D91ADD83B20057CA58 /* small_address_book_page_turn_twice.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = small_address_book_page_turn_twice.mp3; sourceTree = "<group>"; };
+		1FB050DF1ADD91760057CA58 /* HDSoundsCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDSoundsCollector.h; sourceTree = "<group>"; };
+		1FB050E01ADD91760057CA58 /* HDSoundsCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSoundsCollector.m; sourceTree = "<group>"; };
+		1FB050E21ADD92B60057CA58 /* HDSoundRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDSoundRecording.h; sourceTree = "<group>"; };
+		1FB050E31ADD92B60057CA58 /* HDSoundRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSoundRecording.m; sourceTree = "<group>"; };
+		1FB050EF1ADDA9330057CA58 /* HDCreateSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDCreateSoundViewController.h; sourceTree = "<group>"; };
+		1FB050F01ADDA9330057CA58 /* HDCreateSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDCreateSoundViewController.m; sourceTree = "<group>"; };
+		1FB050F81ADDADB80057CA58 /* microphone-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-red.png"; sourceTree = "<group>"; };
+		1FE327611AE691340097CF6C /* HDHistoryProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDHistoryProtocol.h; sourceTree = "<group>"; };
+		1FF829A31B1D34F3002628CA /* aps_development.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = aps_development.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +109,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F4BFBF51AE940AB0088804E /* libsqlite3.dylib in Frameworks */,
+				1F4BFBF31AE9409E0088804E /* libz.dylib in Frameworks */,
+				1F4BFBF11AE940930088804E /* SystemConfiguration.framework in Frameworks */,
+				1F4BFBED1AE940810088804E /* Security.framework in Frameworks */,
+				1F4BFBEB1AE940750088804E /* QuartzCore.framework in Frameworks */,
+				1F4BFBE91AE9406E0088804E /* MobileCoreServices.framework in Frameworks */,
+				1F4BFBE71AE940670088804E /* CoreLocation.framework in Frameworks */,
+				1F4BFBE51AE940610088804E /* CoreGraphics.framework in Frameworks */,
+				1F4BFBE31AE9405B0088804E /* CFNetwork.framework in Frameworks */,
+				1F4BFBE11AE940540088804E /* AudioToolbox.framework in Frameworks */,
 				1FB050D51ADD7B5D0057CA58 /* AVFoundation.framework in Frameworks */,
+				1F4BFBDF1AE9401F0088804E /* Parse.framework in Frameworks */,
+				1F4BFBDE1AE9401F0088804E /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,13 +135,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F4BFBF61AE940C50088804E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F4BFBDC1AE9401F0088804E /* Bolts.framework */,
+				1F4BFBDD1AE9401F0088804E /* Parse.framework */,
+				1FB050D41ADD7B5D0057CA58 /* AVFoundation.framework */,
+				1F4BFBF41AE940AB0088804E /* libsqlite3.dylib */,
+				1F4BFBF21AE9409E0088804E /* libz.dylib */,
+				1F4BFBF01AE940930088804E /* SystemConfiguration.framework */,
+				1F4BFBEC1AE940810088804E /* Security.framework */,
+				1F4BFBEA1AE940750088804E /* QuartzCore.framework */,
+				1F4BFBE81AE9406E0088804E /* MobileCoreServices.framework */,
+				1F4BFBE61AE940670088804E /* CoreLocation.framework */,
+				1F4BFBE41AE940610088804E /* CoreGraphics.framework */,
+				1F4BFBE21AE9405B0088804E /* CFNetwork.framework */,
+				1F4BFBE01AE940540088804E /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1F4BFBF91AE947B40088804E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1F4BFBFC1AE948440088804E /* settings.png */,
+				1FA314661B1231C60014C535 /* play-icon.png */,
+				1FA314691B1231D30014C535 /* microphone.png */,
+				1FB050F81ADDADB80057CA58 /* microphone-red.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		1FB0509C1ADD7AAC0057CA58 = {
 			isa = PBXGroup;
 			children = (
-				1FB050D41ADD7B5D0057CA58 /* AVFoundation.framework */,
 				1FB050A71ADD7AAC0057CA58 /* HappyDogObjC */,
 				1FB050C11ADD7AAC0057CA58 /* HappyDogObjCTests */,
 				1FB050A61ADD7AAC0057CA58 /* Products */,
+				1F4BFBF61AE940C50088804E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,15 +188,12 @@
 		1FB050A71ADD7AAC0057CA58 /* HappyDogObjC */ = {
 			isa = PBXGroup;
 			children = (
-				1FB050CE1ADD7ACF0057CA58 /* HDViewController.h */,
-				1FB050CF1ADD7ACF0057CA58 /* HDViewController.m */,
-				1FB050D11ADD7B440057CA58 /* HDListener.h */,
-				1FB050D21ADD7B440057CA58 /* HDListener.m */,
 				1FB050AC1ADD7AAC0057CA58 /* AppDelegate.h */,
 				1FB050AD1ADD7AAC0057CA58 /* AppDelegate.m */,
 				1FB050B21ADD7AAC0057CA58 /* Main.storyboard */,
+				1FB050E61ADD93170057CA58 /* View Controllers */,
+				1FB050E51ADD92F10057CA58 /* Models */,
 				1FB050B51ADD7AAC0057CA58 /* Images.xcassets */,
-				1FB050B71ADD7AAC0057CA58 /* LaunchScreen.xib */,
 				1FB050A81ADD7AAC0057CA58 /* Supporting Files */,
 			);
 			path = HappyDogObjC;
@@ -111,11 +202,12 @@
 		1FB050A81ADD7AAC0057CA58 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1FB050D61ADD81280057CA58 /* raygun-01.wav */,
-				1FB050D81ADD83B20057CA58 /* pencil_scribble_out_on_paper.mp3 */,
-				1FB050D91ADD83B20057CA58 /* small_address_book_page_turn_twice.mp3 */,
+				1F32D8061B236EFF000AC07D /* Eros_Splash.JPG */,
+				1FF829A31B1D34F3002628CA /* aps_development.cer */,
+				1F4BFBDA1AE936970088804E /* HappyDog_Development.mobileprovision */,
 				1FB050A91ADD7AAC0057CA58 /* Info.plist */,
 				1FB050AA1ADD7AAC0057CA58 /* main.m */,
+				1F4BFBF91AE947B40088804E /* Assets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -135,6 +227,39 @@
 				1FB050C31ADD7AAC0057CA58 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1FB050E51ADD92F10057CA58 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F4BFC011AE95E7E0088804E /* HDConstants.h */,
+				1F74A6CC1AE46E6B0019A158 /* HDListenerProtocol.h */,
+				1FE327611AE691340097CF6C /* HDHistoryProtocol.h */,
+				1F5AC9EA1B13A55100CFCD4E /* HDAudioUtils.h */,
+				1F5AC9EB1B13A55100CFCD4E /* HDAudioUtils.m */,
+				1FB050E21ADD92B60057CA58 /* HDSoundRecording.h */,
+				1FB050E31ADD92B60057CA58 /* HDSoundRecording.m */,
+				1FB050DF1ADD91760057CA58 /* HDSoundsCollector.h */,
+				1FB050E01ADD91760057CA58 /* HDSoundsCollector.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1FB050E61ADD93170057CA58 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F4BFBFE1AE949E80088804E /* HDSettingsViewController.h */,
+				1F4BFBFF1AE949E80088804E /* HDSettingsViewController.m */,
+				1FB050CE1ADD7ACF0057CA58 /* HDViewController.h */,
+				1FB050CF1ADD7ACF0057CA58 /* HDViewController.m */,
+				1FA3146E1B1231FD0014C535 /* HDSoundsListTableViewController.h */,
+				1FA3146F1B1231FD0014C535 /* HDSoundsListTableViewController.m */,
+				1F74A6CD1AE470B90019A158 /* HDBarkHistoryViewController.h */,
+				1F74A6CE1AE470B90019A158 /* HDBarkHistoryViewController.m */,
+				1FB050EF1ADDA9330057CA58 /* HDCreateSoundViewController.h */,
+				1FB050F01ADDA9330057CA58 /* HDCreateSoundViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +311,12 @@
 				TargetAttributes = {
 					1FB050A41ADD7AAC0057CA58 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = UN2446H3FP;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					1FB050BD1ADD7AAC0057CA58 = {
 						CreatedOnToolsVersion = 6.3;
@@ -217,12 +348,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FA3146B1B1231D30014C535 /* microphone.png in Resources */,
 				1FB050B41ADD7AAC0057CA58 /* Main.storyboard in Resources */,
-				1FB050D71ADD81280057CA58 /* raygun-01.wav in Resources */,
-				1FB050DB1ADD83B20057CA58 /* small_address_book_page_turn_twice.mp3 in Resources */,
-				1FB050DA1ADD83B20057CA58 /* pencil_scribble_out_on_paper.mp3 in Resources */,
-				1FB050B91ADD7AAC0057CA58 /* LaunchScreen.xib in Resources */,
+				1FB050F91ADDADB80057CA58 /* microphone-red.png in Resources */,
+				1F32D8071B236EFF000AC07D /* Eros_Splash.JPG in Resources */,
+				1F4BFBDB1AE936970088804E /* HappyDog_Development.mobileprovision in Resources */,
+				1F4BFBFD1AE948440088804E /* settings.png in Resources */,
+				1FA314671B1231C60014C535 /* play-icon.png in Resources */,
 				1FB050B61ADD7AAC0057CA58 /* Images.xcassets in Resources */,
+				1FF829A41B1D34F3002628CA /* aps_development.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,10 +374,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FB050F11ADDA9330057CA58 /* HDCreateSoundViewController.m in Sources */,
 				1FB050D01ADD7ACF0057CA58 /* HDViewController.m in Sources */,
-				1FB050D31ADD7B440057CA58 /* HDListener.m in Sources */,
+				1FB050E11ADD91760057CA58 /* HDSoundsCollector.m in Sources */,
+				1FB050E41ADD92B60057CA58 /* HDSoundRecording.m in Sources */,
+				1F4BFC001AE949E80088804E /* HDSettingsViewController.m in Sources */,
 				1FB050AE1ADD7AAC0057CA58 /* AppDelegate.m in Sources */,
+				1FA314701B1231FD0014C535 /* HDSoundsListTableViewController.m in Sources */,
 				1FB050AB1ADD7AAC0057CA58 /* main.m in Sources */,
+				1F5AC9EC1B13A55100CFCD4E /* HDAudioUtils.m in Sources */,
+				1F74A6CF1AE470B90019A158 /* HDBarkHistoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,14 +414,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		1FB050B71ADD7AAC0057CA58 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1FB050B81ADD7AAC0057CA58 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -302,7 +434,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -346,7 +479,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -371,9 +505,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HappyDogObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -381,9 +523,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HappyDogObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -440,6 +590,7 @@
 				1FB050CA1ADD7AAC0057CA58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1FB050CB1ADD7AAC0057CA58 /* Build configuration list for PBXNativeTarget "HappyDogObjCTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +599,7 @@
 				1FB050CD1ADD7AAC0057CA58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
