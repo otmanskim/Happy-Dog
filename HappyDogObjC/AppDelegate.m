@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "HDSoundsCollector.h"
+#import "HDSoundRecording.h"
+#import "HDConstants.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -17,7 +21,105 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [Parse setApplicationId:@"4ZdCm6J4pCdMAdtgxZMv9PFT9xSfBtqRkOq94FVj"
+                  clientKey:@"0Xn3swuVfCFISAkTlYCmWKdWEM3HB507FVMVMDUG"];
+    
+    [self populateSoundsArray];
+    
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
+    
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
+    [application registerUserNotificationSettings:settings];
+    [application registerForRemoteNotifications];
+    
+    
     return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation addUniqueObject:@"Eros_Bark" forKey:@"channels"];
+    [currentInstallation saveInBackground];
+    
+    [self updatePushNotificationListenerChannel];
+}
+
+- (void)stopListeningForCurrentChannel {
+    NSString *channel = [self channelName];
+
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation removeObject:channel forKey:@"channels"];
+    [currentInstallation saveInBackground];
+}
+
+/**
+ Either starts or stops listening on the channel with the current saved dog name, depending on the "isListeningDevice" value
+ */
+- (void)updatePushNotificationListenerChannel {
+    
+    NSString *channel = [self channelName];
+    
+    if(channel.length == 0) {
+        channel = @"Default_Channel";
+    }
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:kNSUserDefaultsIsListeningDeviceKey]) {
+        //if NOT a listener, add channel so it can get push notifications from the listener
+        [currentInstallation addUniqueObject:channel forKey:@"channels"];
+    } else {
+        //else remove it so we aren't listening
+        [currentInstallation removeObject:channel forKey:@"channels"];
+    }
+    
+    [currentInstallation saveInBackground];
+}
+
+- (void)sendBarkPushNotification {
+    NSString *channelString = [self channelName];
+    NSString *messageString = [NSString stringWithFormat:@"A bark was just detected from %@!", [[NSUserDefaults standardUserDefaults] objectForKey:kNSUserDefaultsDogNameKey]];
+    
+    PFPush *push = [[PFPush alloc] init];
+    [push setChannel:channelString];
+    [push setMessage:messageString];
+    [push sendPushInBackground];
+}
+
+- (NSString *)channelName {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *dogName = [defaults objectForKey:kNSUserDefaultsDogNameKey];
+    NSString *email = [defaults objectForKey:kNSUserDefaultsEmailKey];
+    NSString *nameFromEmail = @"";
+    
+    if(email.length) {
+        nameFromEmail = [email substringToIndex:[email rangeOfString:@"@"].location];
+    }
+    
+    if(dogName.length == 0) {
+        dogName = @"Default_Name";
+    }
+    
+    if(nameFromEmail.length == 0) {
+        nameFromEmail = @"Default_Email";
+    }
+    
+    NSString *channelName = [NSString stringWithFormat:@"%@_%@_Bark",nameFromEmail,dogName];
+    
+    return channelName;
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
+}
+
+- (void)populateSoundsArray {
+    HDSoundsCollector *collector = [HDSoundsCollector sharedInstance];
+    [collector performInitialSoundFetchFromUserDefaults];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
