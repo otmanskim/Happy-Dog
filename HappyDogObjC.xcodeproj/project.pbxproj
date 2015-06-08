@@ -39,6 +39,7 @@
 		1FB050E41ADD92B60057CA58 /* HDSoundRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050E31ADD92B60057CA58 /* HDSoundRecording.m */; };
 		1FB050F11ADDA9330057CA58 /* HDCreateSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB050F01ADDA9330057CA58 /* HDCreateSoundViewController.m */; };
 		1FB050F91ADDADB80057CA58 /* microphone-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FB050F81ADDADB80057CA58 /* microphone-red.png */; };
+		1FBB20621B25BD41002E10E3 /* PuppyMonitorDistrubutionProfile.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = 1FBB20611B25BD41002E10E3 /* PuppyMonitorDistrubutionProfile.mobileprovision */; };
 		1FF829A41B1D34F3002628CA /* aps_development.cer in Resources */ = {isa = PBXBuildFile; fileRef = 1FF829A31B1D34F3002628CA /* aps_development.cer */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		1FB050EF1ADDA9330057CA58 /* HDCreateSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDCreateSoundViewController.h; sourceTree = "<group>"; };
 		1FB050F01ADDA9330057CA58 /* HDCreateSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDCreateSoundViewController.m; sourceTree = "<group>"; };
 		1FB050F81ADDADB80057CA58 /* microphone-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-red.png"; sourceTree = "<group>"; };
+		1FBB20611B25BD41002E10E3 /* PuppyMonitorDistrubutionProfile.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = PuppyMonitorDistrubutionProfile.mobileprovision; sourceTree = "<group>"; };
 		1FE327611AE691340097CF6C /* HDHistoryProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDHistoryProtocol.h; sourceTree = "<group>"; };
 		1FF829A31B1D34F3002628CA /* aps_development.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = aps_development.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,6 +207,7 @@
 				1F32D8061B236EFF000AC07D /* Eros_Splash.JPG */,
 				1FF829A31B1D34F3002628CA /* aps_development.cer */,
 				1F4BFBDA1AE936970088804E /* HappyDog_Development.mobileprovision */,
+				1FBB20611B25BD41002E10E3 /* PuppyMonitorDistrubutionProfile.mobileprovision */,
 				1FB050A91ADD7AAC0057CA58 /* Info.plist */,
 				1FB050AA1ADD7AAC0057CA58 /* main.m */,
 				1F4BFBF91AE947B40088804E /* Assets */,
@@ -351,6 +354,7 @@
 				1FA3146B1B1231D30014C535 /* microphone.png in Resources */,
 				1FB050B41ADD7AAC0057CA58 /* Main.storyboard in Resources */,
 				1FB050F91ADDADB80057CA58 /* microphone-red.png in Resources */,
+				1FBB20621B25BD41002E10E3 /* PuppyMonitorDistrubutionProfile.mobileprovision in Resources */,
 				1F32D8071B236EFF000AC07D /* Eros_Splash.JPG in Resources */,
 				1F4BFBDB1AE936970088804E /* HappyDog_Development.mobileprovision in Resources */,
 				1F4BFBFD1AE948440088804E /* settings.png in Resources */,
@@ -434,7 +438,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -479,8 +483,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -506,8 +510,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Otmanski (E5GEE5Z85G)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -524,8 +528,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

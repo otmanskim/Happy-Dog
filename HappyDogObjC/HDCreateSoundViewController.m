@@ -73,9 +73,6 @@
 }
 
 - (IBAction)recordButtonTapped:(id)sender {
-    
-    NSLog(@"AudioRecorder.isRecording  = %d", [self.audioRecorder isRecording]);
-    
     if(![self newSoundNamePassesCriteria]) {
         //only allow recording if we already have a valid name
         [self showNeedsNameAlert];
@@ -229,10 +226,7 @@
     
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
                                                        style:UIAlertActionStyleCancel
-                                                     handler:^(UIAlertAction *action)
-                               {
-                                   NSLog(@"OK action");
-                               }];
+                                                     handler:nil];
     
     [alertController addAction:okAction];
     [self presentViewController:alertController animated:YES completion:nil];
